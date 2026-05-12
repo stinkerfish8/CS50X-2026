@@ -22,4 +22,4 @@ This repository contains my projects and exercises for the **Harvard CS50x 2026*
 * [ ] **Week 10: Cybersecurity**
 
 ---
-> **Disclaimer:** This repository is for personal tracking and portfolio purposes. If you are a student, please follow the academic honesty guidelines and do not copy these solutions.
+> **Disclaimer:** This repository is for personal tracking and study notes. In accordance with the CS50x academic honesty guidelines, no solutions to the course problem sets are hosted here. If you are a student, I encourage you to focus on the learning process and create your own original work.
