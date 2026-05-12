@@ -1,8 +1,8 @@
 # Home Run Hero
 
-![Home Run Hero Preview](hrh.png)
-
 A retro arcade-style baseball game developed as my Project 0 for Harvard's CS50x 2026.
+
+![Home Run Hero Preview](hrh.png)
 
 ## Project Description
 Home Run Hero is a fast-paced skill game where the player must catch falling baseballs and serve them to the batter. The game focuses on precision and timing, featuring a progressive difficulty system where the speed of the falling balls increases as the player scores points.
