@@ -1,2 +1,25 @@
-# CS50X-2026
-My CS50x 2026 journey: from Scratch to C, Python, and SQL.
+# CS50x 2026 - Introduction to Computer Science
+
+This repository contains my projects and exercises for the **Harvard CS50x 2026** course. My goal is to build a solid foundation in programming, starting from Scratch and moving through C, Python, SQL, and Web Development.
+
+## Useful Resources
+* [CS50x Official Course (edX)](https://learning.edx.org/course/course-v1:HarvardX+CS50X+T1_2026/home)
+* [Course Documentation (Notes & Labs)](https://cs50.harvard.edu/x/2026/)
+* [Scratch Editor](https://scratch.mit.edu/projects/editor/)
+* [Course Gallery](https://cs50.harvard.edu/x/2026/gallery/)
+
+## Journey Progress
+* [x] **Week 0: Scratch** - [Home Run Hero](./week0-scratch/)
+* [ ] **Week 1: C**
+* [ ] **Week 2: Arrays**
+* [ ] **Week 3: Algorithms**
+* [ ] **Week 4: Memory**
+* [ ] **Week 5: Data Structures**
+* [ ] **Week 6: Python**
+* [ ] **Week 7: SQL**
+* [ ] **Week 8: HTML, CSS, JavaScript**
+* [ ] **Week 9: Flask**
+* [ ] **Week 10: Cybersecurity**
+
+---
+> **Disclaimer:** This repository is for personal tracking and portfolio purposes. If you are a student, please follow the academic honesty guidelines and do not copy these solutions.
