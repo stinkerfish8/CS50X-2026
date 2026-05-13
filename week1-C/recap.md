@@ -1,5 +1,7 @@
 # CS50 Recap - Week 1: C
 
+[Course Material](https://cs50.harvard.edu/x/weeks/1/)
+
 ## 1. Environment & Tools
 * **VS Code & Codespaces:** Cloud-based Integrated Development Environment (IDE).
 * **Terminal (CLI):** Command Line Interface used for navigation (`ls`, `cd`, `mkdir`, `cp`, `mv`).
