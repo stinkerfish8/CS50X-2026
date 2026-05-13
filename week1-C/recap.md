@@ -1,7 +1,5 @@
 # CS50 Recap - Week 1: C
 
-[Course Material](https://cs50.harvard.edu/x/weeks/1/)
-
 ## 1. Environment & Tools
 * **VS Code & Codespaces:** Cloud-based Integrated Development Environment (IDE).
 * **Terminal (CLI):** Command Line Interface used for navigation (`ls`, `cd`, `mkdir`, `cp`, `mv`).
@@ -36,3 +34,5 @@
 * **Correctness:** Automated testing via `check50`.
 * **Style:** Visual consistency and formatting checked by `style50`.
 * **Design:** The logical efficiency and elegance of the solution.
+
+[Course Material](https://cs50.harvard.edu/x/weeks/1/)
