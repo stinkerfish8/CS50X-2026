@@ -10,7 +10,7 @@ This repository contains my projects and exercises for the **Harvard CS50x 2026*
 
 ## Journey Progress
 * [x] **Week 0: Scratch** - [Home Run Hero](./week0-scratch/)
-* [ ] **Week 1: C**
+* [x] **Week 1: C**
 * [ ] **Week 2: Arrays**
 * [ ] **Week 3: Algorithms**
 * [ ] **Week 4: Memory**
