@@ -32,7 +32,11 @@ The Unsigned Qualifier: The unsigned keyword shifts the entire capacity of a dat
 Example: A standard signed char ranges from -128 to +127. An unsigned char shifts this capacity entirely to a range of 0 to 255.
 Trade-off: You can no longer use -1 as a special error or EOF (End of File) signal within that variable.
 
-Dash vs. Hyphen Differentiation:
-Hyphen (-): The standard key to the right of the zero. In programming, it functions as the minus sign (-o flags in terminal commands use this character).
-En-dash (–): Equal to the width of a capital letter "N". Historically used in typesetting for ranges (e.g., pages 10–20).
-Em-dash (—): Equal to the width of a capital letter "M". Used in typography for parenthetical breaks or sentence interruptions.
+## 4. Debugging Options & Techniques
+printf Debugging: The most immediate approach. It involves inserting print statements throughout the code to manually track variable values and program flow at specific execution points.
+
+Interactive Debuggers (e.g., debug50, GDB): Software tools that let the programmer pause code execution at specific lines (breakpoints), step through instructions one line at a time, and inspect the exact contents of memory dynamically.
+
+Rubber Duck Debugging: A psychological and practical technique using a physical object (traditionally a rubber duck). The programmer explains their code line-by-line, out loud, to the inanimate object as if teaching a beginner. 
+
+The Logic Behind the Duck: The duck simply represents an unjudgmental listener. Forcing oneself to translate abstract logical thoughts into spoken words breaks the mental loop. This process often reveals hidden assumptions, logical gaps, or simple typos, causing the programmer to suddenly find the solution themselves.
