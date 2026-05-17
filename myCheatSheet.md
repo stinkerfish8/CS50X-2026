@@ -1,16 +1,7 @@
 # myCheatSheet
+[Terminal](#1-terminal-navigation--file-management) | [Flags](#2-terminal-modifier-flags) | [Compilation](#3-c-compilation--execution) | [Shortcuts](#4-essential-terminal-shortcuts) | [VSC](#5-visual-studio-code-efficiency-shortcuts) | [Data Types](#6-c-data-types-ram-footprint--format-specifiers)
 
 Personal reference guide for terminal navigation, environment shortcuts, and low-level C programming concepts.
-
----
-
-## Table of Contents
-1. [terminal-navigation--file-management](#1-terminal-navigation--file-management)
-2. [terminal-modifier-flags](#2-terminal-modifier-flags)
-3. [c-compilation--execution](#3-c-compilation--execution)
-4. [essential-terminal-shortcuts](#4-essential-terminal-shortcuts)
-5. [visual-studio-code-efficiency-shortcuts](#5-visual-studio-code-efficiency-shortcuts)
-6. [c-data-types-ram-footprint--format-specifiers](#6-c-data-types-ram-footprint--format-specifiers)
 
 ---
 
