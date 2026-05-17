@@ -10,7 +10,7 @@ The State of RAM: RAM is physically 100% full at all times. There is no such thi
 Garbage Values: When a variable is declared without initialization, it contains the random leftover binary data previously stored in that memory slot by other programs.
 Data vs. "Nothing": Software and programming languages create logical rules (like the Null Terminator \0 in strings or NULL pointers) to simulate the concept of emptiness or the end of a data structure.
 
-## 2. Hardware & Microscopic Structure of RAM
+## 2. Hardware & Microscopic Structure of RAM (extra)
 The "Water Glass" Analogy: A RAM cell behaves like a microscopic glass filled with water. 
 1 = High electrical charge (full glass).
 0 = Low/no electrical charge (empty glass).
@@ -27,7 +27,7 @@ Physical Shape (Cylindrical vs. Square): Although mapped logically as a square g
 
 Volatility and Refresh: Because these containers are atomic in scale, the electrical charge leaks constantly. RAM requires a continuous "Refresh" cycle where the computer recharges the cells holding a 1 hundreds of times per second. When power is cut, all charges dissipate instantly.
 
-## 3. C Syntax & Typographic Clarifications
+## 3. C Syntax & Typographic Clarifications (extra)
 The Unsigned Qualifier: The unsigned keyword shifts the entire capacity of a data type above zero, removing the ability to store negative numbers but doubling the maximum positive range.
 Example: A standard signed char ranges from -128 to +127. An unsigned char shifts this capacity entirely to a range of 0 to 255.
 Trade-off: You can no longer use -1 as a special error or EOF (End of File) signal within that variable.
@@ -40,3 +40,62 @@ Interactive Debuggers (e.g., debug50, GDB): Software tools that let the programm
 Rubber Duck Debugging: A psychological and practical technique using a physical object (traditionally a rubber duck). The programmer explains their code line-by-line, out loud, to the inanimate object as if teaching a beginner. 
 
 The Logic Behind the Duck: The duck simply represents an unjudgmental listener. Forcing oneself to translate abstract logical thoughts into spoken words breaks the mental loop. This process often reveals hidden assumptions, logical gaps, or simple typos, causing the programmer to suddenly find the solution themselves.
+
+## 5. The Compilation Process & Reverse Engineering
+Step 1 - Preprocessing: The compiler looks for lines starting with a hash symbol (like #include or #define). It copies the contents of header files (like stdio.h) directly into your file and replaces macros with their actual values. The code is still human-readable C.
+
+Step 2 - Compiling: The compiler takes the preprocessed C code and translates it into Assembly language. Assembly is a very low-level language composed of basic instructions specific to the computer's CPU architecture (like ADD, MOV, or PUSH). It is barely human-readable but still uses words instead of numbers.
+
+Step 3 - Assembling: The assembler takes the Assembly code and translates it into Machine Code (Object Code). This is the level where the code is converted into raw binary data (0s and 1s) that the CPU can execute physically. The output at this stage is an object file (e.g., file.o).
+
+Step 4 - Linking: If your program uses external libraries (like CS50's GetString or standard printing functions), the linker combines your object file with the pre-compiled machine code of those libraries into a single, final executable file.
+
+Reverse Engineering: The inverse of the compilation process. It involves taking a finished binary executable (machine code) and using specialized tools like decompilers to reconstruct the higher-level logic or assembly code. 
+
+The Goal of Reverse Engineering: Since compilers strip away human context (such as variable names, formatting, and comments), reverse engineering requires analytical skills to decipher the "unflourished" code structure. It is used to understand how a closed-source program works, find security vulnerabilities (threats), or analyze malware.
+
+## 6. Clang Compiler Commands & Arguments
+The Reality of Make: The command "make" is not actually a compiler; it is an automation tool. Under the hood, when you type "make credit", it automatically constructs and executes a long, complex command using the actual compiler, which is Clang (C Language).
+
+Manual Compilation: You can compile files manually without make by calling the compiler directly and passing arguments (flags) to modify its behavior.
+Example: clang -o credit credit.c -lcs50
+
+Command Arguments Breakdown:
+The Source File: "credit.c" is the input argument telling Clang which file containing human-readable C code needs to be compiled.
+
+The Output Flag (-o): The "-o" argument stands for output. The word immediately following it ("credit") tells the compiler exactly what to name the final binary executable file. If you omit "-o", Clang will default to naming the executable "a.out".
+
+The Library Flag (-l): The "-l" argument stands for link. It tells the Linker stage of compilation to include an external library. For instance, "-lcs50" tells Clang to look for and link the pre-compiled machine code of the CS50 library, allowing the program to use custom functions like get_int or get_string.
+
+## 7. Memory Structures: Arrays & Strings
+The Structure of Arrays: An array is a contiguous block (chunk) of memory allocated to store multiple values of the exact same data type back-to-back. 
+Indexing: Elements inside an array are accessed using zero-based indexing (e.g., `scores[0]`, `scores[1]`). 
+Initialization: Arrays can be declared and initialized immediately using curly braces. 
+Example: `int scores[] = {72, 73, 33};`
+
+The Reality of Strings in C: In native C, the `string` data type does not exist. It is a custom abstraction provided by the `<cs50.h>` library. Under the hood, a string is simply an array of characters (`char []`).
+
+The Null Terminator (\0): To determine where a string ends inside the contiguous memory, C uses a special, invisible character called the Null Terminator, represented as `\0` (ASCII value 0). 
+Memory Overhead: Because of `\0`, every string requires exactly 1 extra byte of memory beyond its actual text length. A word with 4 letters (like "Fish") physically occupies 5 bytes in RAM.
+
+## 8. Historic Control Characters (ASCII 0–31)
+The Legacy of Mechanical Typewriters: The first 32 characters of the ASCII table are non-printable "control characters". They were originally mapped to send physical commands to teleprinters and mechanical typewriters rather than printing text.
+
+Key Control Codes:
+- Horizontal Tab (\t - ASCII 9): Advanced the mechanical print head to the next predetermined columnar stop (the tabulator), allowing columns of data to line up.
+- Line Feed (\n - ASCII 10): Rotated the paper roller mechanism upward by one line.
+- Carriage Return (\r - ASCII 13): Slid the entire printing carriage all the way back to the leftmost margin.
+- Bell (\a - ASCII 7): Actuated a physical hammer to strike a metal bell inside the machine, alerting the operator of an error or the end of a transmission.
+
+Modern Inheritance: Today, when a programmer uses `\n` or `\t` inside a `printf` statement, they are utilizing these historical typewriter mechanics to manipulate the software cursor on a digital terminal.
+
+## 9. Command-Line Arguments
+Passing Inputs via Terminal: C programs can accept inputs directly from the terminal at the moment of execution. This is achieved by modifying the traditional `main` function signature to accept parameters: `int main(int argc, string argv[])`
+
+Argument Count (argc): A standard integer variable that stores the total number of words typed into the terminal command line to run the program. Words are separated by spaces.
+
+Argument Vector (argv): An array of strings containing the actual words typed by the user.
+The System Rule: `argv[0]` is always reserved for the name of the executable file itself (e.g., `./hello`). The actual custom inputs provided by the user start from `argv[1]` onward.
+
+The Safety Boundary (Segmentation Fault): If a program tries to access an index of `argv` that does not exist (e.g., checking `argv[1]` when the user didn't type any argument), the program will attempt to read an unallocated sector of RAM, causing a critical crash called a "Segmentation Fault".
+Defensive Programming: Code must be secured with a conditional block (e.g., `if (argc != 2)`) to verify the correct number of arguments exists before attempting to read them, acting as a crucial software safety belt.
