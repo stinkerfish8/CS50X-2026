@@ -11,11 +11,12 @@ This repository contains my projects and exercises for the **Harvard CS50x 2026*
 
 ## Journey Progress
 * [x] **Week 0: Scratch** - [Home Run Hero](./week0-scratch/)
-* [x] **Week 1: C** - [Notes](./week1-C/)
-* [ ] **Week 2: Arrays** - [Notes](./week2-Array/)
+* [x] **Week 1: C** - [Exercises & Labs](./week1-C/)
+* [ ] **Week 2: Arrays** - [Exercises & Labs](./week2-Array/)
 * [ ] **Week 3: Algorithms**
 * [ ] **Week 4: Memory**
-* [ ] **Week 5: Data Structures**
+* [ ] **Week 5: Data Structures** 🎯 *[My Minimum Goal]*
+---
 * [ ] **Week 6: Python**
 * [ ] **Week 7: SQL**
 * [ ] **Week 8: HTML, CSS, JavaScript**
