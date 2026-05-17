@@ -27,8 +27,8 @@ Physical Shape (Cylindrical vs. Square): Although mapped logically as a square g
 
 Volatility and Refresh: Because these containers are atomic in scale, the electrical charge leaks constantly. RAM requires a continuous "Refresh" cycle where the computer recharges the cells holding a 1 hundreds of times per second. When power is cut, all charges dissipate instantly.
 
-## 3. C Syntax & Typographic Clarifications (extra)
-The Unsigned Qualifier: The unsigned keyword shifts the entire capacity of a data type above zero, removing the ability to store negative numbers but doubling the maximum positive range.
+## 3. The Unsigned Qualifier (extra)
+The unsigned keyword shifts the entire capacity of a data type above zero, removing the ability to store negative numbers but doubling the maximum positive range.
 Example: A standard signed char ranges from -128 to +127. An unsigned char shifts this capacity entirely to a range of 0 to 255.
 Trade-off: You can no longer use -1 as a special error or EOF (End of File) signal within that variable.
 
@@ -78,7 +78,7 @@ The Reality of Strings in C: In native C, the `string` data type does not exist.
 The Null Terminator (\0): To determine where a string ends inside the contiguous memory, C uses a special, invisible character called the Null Terminator, represented as `\0` (ASCII value 0). 
 Memory Overhead: Because of `\0`, every string requires exactly 1 extra byte of memory beyond its actual text length. A word with 4 letters (like "Fish") physically occupies 5 bytes in RAM.
 
-## 8. Historic Control Characters (ASCII 0–31)
+## 8. Historic Control Characters (ASCII 0–31) (extra)
 The Legacy of Mechanical Typewriters: The first 32 characters of the ASCII table are non-printable "control characters". They were originally mapped to send physical commands to teleprinters and mechanical typewriters rather than printing text.
 
 Key Control Codes:
