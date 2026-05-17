@@ -1,6 +1,8 @@
 # CS50x 2026 - Introduction to Computer Science
 
-This repository contains my projects and exercises for the **Harvard CS50x 2026** course. My goal is to build a solid foundation in programming, starting from Scratch and moving through C, Python, SQL, and Web Development.
+This repository contains my exercises and study notes for the **Harvard CS50x 2026** course. 
+
+My goal isn't necessarily to become a full-time programmer, but to build a solid foundation in computer science and truly understand how the machine works under the hood. Gaining this low-level awareness helps me approach all my technical, logical, and creative projects with a deeper understanding of the tool I'm using.
 
 ## Useful Resources
 * [My Personal CheatSheet & Notes](./myCheatSheet.md)
@@ -16,7 +18,6 @@ This repository contains my projects and exercises for the **Harvard CS50x 2026*
 * [ ] **Week 3: Algorithms**
 * [ ] **Week 4: Memory**
 * [ ] **Week 5: Data Structures** 🎯 *[My Minimum Goal]*
----
 * [ ] **Week 6: Python**
 * [ ] **Week 7: SQL**
 * [ ] **Week 8: HTML, CSS, JavaScript**
