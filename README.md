@@ -15,7 +15,7 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 ## Journey Progress
 * [x] **Week 0: Scratch** - [Home Run Hero](./week0-scratch/)
 * [x] **Week 1: C** - [Notes](./week1-C/)
-* [ ] **Week 2: Arrays** - [Notes](./week2-Array/)
+* [ ] **Week 2: Arrays** - [Notes & Practice](./week2-Array/)
 * [ ] **Week 3: Algorithms**
 * [ ] **Week 4: Memory**
 * [ ] **Week 5: Data Structures** 🎯 *[My Minimum Goal]*
