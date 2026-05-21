@@ -52,3 +52,7 @@ Theoretically, C allows you to have as many dimensions as you want (3D, 4D, etc.
 
 ### Size Alteration
 * **Fixed Size:** Once an array is declared with a specific size, its size cannot be changed or resized during the execution of the program. If you need a flexible list that grows or shrinks dynamically, you cannot use standard arrays; you will need to handle memory manually using pointers and dynamic memory allocation (`malloc`).
+
+### Function Calls: Passed by Reference
+* **The Exception to the Rule:** While ordinary variables (like `int`, `char`, `float`) are passed to functions **by value** (as copies), arrays are automatically passed **by reference**.
+* **The Consequence:** When you pass an array to a function, the function (callee) receives the actual original array, not a duplicate. This means any modification or manipulation the function performs on the array elements will instantly and permanently change the original array inside the calling function (like `main`).
