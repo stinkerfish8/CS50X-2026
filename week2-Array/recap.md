@@ -88,14 +88,3 @@ Key Control Codes:
 - Bell (\a - ASCII 7): Actuated a physical hammer to strike a metal bell inside the machine, alerting the operator of an error or the end of a transmission.
 
 Modern Inheritance: Today, when a programmer uses `\n` or `\t` inside a `printf` statement, they are utilizing these historical typewriter mechanics to manipulate the software cursor on a digital terminal.
-
-## 9. Command-Line Arguments
-Passing Inputs via Terminal: C programs can accept inputs directly from the terminal at the moment of execution. This is achieved by modifying the traditional `main` function signature to accept parameters: `int main(int argc, string argv[])`
-
-Argument Count (argc): A standard integer variable that stores the total number of words typed into the terminal command line to run the program. Words are separated by spaces.
-
-Argument Vector (argv): An array of strings containing the actual words typed by the user.
-The System Rule: `argv[0]` is always reserved for the name of the executable file itself (e.g., `./hello`). The actual custom inputs provided by the user start from `argv[1]` onward.
-
-The Safety Boundary (Segmentation Fault): If a program tries to access an index of `argv` that does not exist (e.g., checking `argv[1]` when the user didn't type any argument), the program will attempt to read an unallocated sector of RAM, causing a critical crash called a "Segmentation Fault".
-Defensive Programming: Code must be secured with a conditional block (e.g., `if (argc != 2)`) to verify the correct number of arguments exists before attempting to read them, acting as a crucial software safety belt.
