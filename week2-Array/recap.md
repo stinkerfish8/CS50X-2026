@@ -1,4 +1,4 @@
-# Computer Science & Low-Level Programming Notes
+# Low-Level Programming Notes
 
 ## 1. Low-Level Concepts & Memory Representation
 Low-Level Definition: Indicates how close a language or system is to the actual hardware. High-level languages (like Python or Java) abstract the hardware away, while low-level languages (like C) force the programmer to manage memory and the processor directly.
