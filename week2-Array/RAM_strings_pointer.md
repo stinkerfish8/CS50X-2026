@@ -1,4 +1,4 @@
-# C Notes: RAM Memory, Strings, and Pointers
+# RAM Memory, Strings, and Pointers
 
 In C, strings do not exist as a native data type. The `string` type included in the `<cs50.h>` library is actually an alias for `char *`, which means a **pointer to a character**.
 
