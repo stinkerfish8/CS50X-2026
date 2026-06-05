@@ -1,4 +1,5 @@
 // C Practice: program to calculate triangle properties.
+// To test the code, install the cs50 library or run it on cs50.dev
 // Stinker_Fish (github.com/stinkerfish8) - 2026
 
 #include <cs50.h>
