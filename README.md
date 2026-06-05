@@ -28,8 +28,8 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 ## Custom Projects
 Here are some extra programs I developed from scratch to experiment with the concepts learned during the course:
 * **[Home Run Hero](./week0-scratch/)** (Week 0) - A game developed in Scratch to practice fundamental programming logic.
-* **[Triangle Properties](./week2-Arrays/triangle/triangle.c)** (Week 2) - A script to calculate geometric properties of triangles.
-* **[Dish Calories Calculator](./week2-Arrays/calories/calories.c)** (Week 2) - A terminal tool that parses ingredients, weights, and values to calculate total meal calories.
+* **[Triangle Properties](./week2-Arrays/triangle)** (Week 2) - A script to calculate geometric properties of triangles.
+* **[Dish Calories Calculator](./week2-Arrays/calories)** (Week 2) - A terminal tool that parses ingredients, weights, and values to calculate total meal calories.
 
 ---
 > **Disclaimer:** This repository is for personal tracking and study notes. In accordance with the CS50x academic honesty guidelines, no solutions to the course problem sets are hosted here. If you are a student, I encourage you to focus on the learning process and create your own original work.
