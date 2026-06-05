@@ -5,6 +5,7 @@ A simple and efficient C program to calculate the total caloric intake of a dish
 ## Demo
 
 ![Program Demo](demo.gif)
+
 *Recorded with [asciinema](https://asciinema.org) and converted to GIF using [agg](https://github.com/asciinema/agg).*
 
 ## How to Run
