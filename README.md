@@ -5,7 +5,7 @@ This repository contains my exercises and study notes for the **Harvard CS50x 20
 My goal isn't necessarily to become a full-time programmer, but to build a solid foundation in computer science and truly understand how the machine works. Gaining this low-level awareness helps me approach all my technical, logical, and creative projects with a deeper understanding of the tool I'm using.
 
 ## Useful Resources
-* [My Personal CheatSheet & Notes](./myCheatSheet.md)
+* [My Personal CheatSheet](./myCheatSheet.md)
 * [CS50x Official Course (edX)](https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home)
 * [Course Documentation (Notes & Labs)](https://cs50.harvard.edu/x/2026/)
 * [Manual Pages](https://manual.cs50.io/)
