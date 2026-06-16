@@ -7,7 +7,7 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 ## Useful Resources
 * [My Personal CheatSheet](./myCheatSheet.md)
 * [CS50x Official Course (edX)](https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home)
-* [Course Documentation (Notes & Labs)](https://cs50.harvard.edu/x/2026/)
+* [Course Documentation](https://cs50.harvard.edu/x/2026/)
 * [Manual Pages](https://manual.cs50.io/)
 * [Scratch Editor](https://scratch.mit.edu/projects/editor/)
 * [Course Gallery](https://cs50.harvard.edu/x/2026/gallery/)
