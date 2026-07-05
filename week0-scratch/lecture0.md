@@ -66,3 +66,16 @@ To convert it to Decimal:
 * **Core Principle**: It's not just about getting the answer, it's about the efficiency (correctness + speed) of the process.
 * **Scratch**: Visual programming language developed by MIT.
 * **Nybble**: Half a byte (4 bites).
+
+---
+<details>
+<summary>Insight: Deduction vs. Inference</summary>
+<ul>
+  <li><strong>Deduction (Theory):</strong> Admins want a successful project ➔ A successful project requires communication and staff support ➔ Therefore, admins must support the Social Manager.</li>
+  <li><strong>Inference (Reality):</strong> Admins ignore messages and refuse even a 1-second reaction on Telegram, claiming they have no time.</li>
+  <li><strong>Conclusion:</strong> While the deduction is theoretically flawless, the practical <em>inference</em> reveals the truth: "having no time" is just an excuse. Human limitations (laziness, lack of foresight, and low engagement) break the ideal logical chain. Real-world actions always override theoretical axioms.</li>
+</ul>
+</details>
+
+
+

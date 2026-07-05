@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "obsidian-guide.md",
+                "file": "week3-algorithms/notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "obsidian-guide"
+              "title": "notes"
             }
           }
         ]
@@ -41,7 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "obsidian-guide.md",
+                "file": "week3-algorithms/notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for obsidian-guide"
+              "title": "Backlinks for notes"
             }
           },
           {
@@ -186,7 +186,14 @@
   },
   "active": "e2502476c278de46",
   "lastOpenFiles": [
+    "Untitled 1.canvas",
     "week3-algorithms/notes.md",
+    "Untitled.canvas",
+    "README.md",
+    "Untitled.base",
+    "week0-scratch/lecture0.md",
+    "week0-scratch/README.md",
+    "week0-scratch/hrh.png",
     "obsidian-guide.md",
     "cheatsheet.md"
   ]

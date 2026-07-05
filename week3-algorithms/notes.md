@@ -34,15 +34,15 @@ Think of the capital **O** as standing for *"On the order of"*.
 
 ### Common Big O Running Times (From Slowest to Fastest Growth)
 
-#### 1. $O(n)$ — Linear Time
+#### 1. $O(n)$ Linear Time
 * **Meaning:** The number of steps grows proportionally to the size of the input ($n$).
 * **Example:** The basic, page-by-page or person-by-person counting method. If you have 100 people, it takes 100 steps. If you have 1,000 people, it takes 1,000 steps.
 
-#### 2. $O(\log n)$ — Logarithmic Time
+#### 2. $O(\log n)$ Logarithmic Time
 * **Meaning:** The problem space is divided in half at every single step. As the input grows huge, the number of steps increases very slowly.
 * **Example:** **Binary Search** (the phone book experiment where you flip to the middle and tear pages in half) or the **Recursive Counting** experiment with the audience. Even if you double the number of people in the theater, it only adds *one extra step* to the whole process.
 
-#### 3. $O(1)$ — Constant Time
+#### 3. $O(1)$ Constant Time
 * **Meaning:** The algorithm always takes the exact same number of steps, regardless of how big the input is.
 * **Example:** Checking if a single number is even or odd, or looking at the value held by the very last person standing in the theater. It takes 1 step whether there are 10 people or 10,000.
 
@@ -68,15 +68,15 @@ When describing how fast or efficient an algorithm is, we can say:
 
 ### Advanced Big O Running Times (From Fastest to Slowest Growth)
 
-#### 4. $O(n \log n)$ — Linearithmic Time (Tempo Linearitmico)
+#### 4. $O(n \log n)$ Linearithmic Time (Tempo Linearitmico)
 * **Meaning:** This is a combination of linear time ($n$) and logarithmic time ($\log n$). It represents algorithms that divide a problem in half (logarithmic) but must repeat that division process for every single element in the dataset (linear).
 * **Example:** Efficient sorting algorithms, like **Merge Sort**. It is the standard benchmark for sorting large datasets efficiently.
 
-#### 5. $O(n^2)$ — Quadratic Time (Tempo Quadratico)
+#### 5. $O(n^2)$ Quadratic Time (Tempo Quadratico)
 * **Meaning:** The number of steps grows exponentially relative to the square of the input size. If you double the dataset size ($2n$), the execution steps quadruple ($4n^2$). This happens when an algorithm uses nested loops (a loop inside another loop) to compare every element with every other element.
 * **Example:** Slow, brute-force sorting algorithms like **Bubble Sort** or **Selection Sort**. If you have 1,000 players to sort by score using Bubble Sort, it could take up to 1,000,000 steps.
 
-#### 6. $O(2^n)$ — Exponential Time (Tempo Esponenziale)
+#### 6. $O(2^n)$ Exponential Time (Tempo Esponenziale)
 * **Meaning:** The number of steps doubles with every single additional element added to the dataset. This is extremely inefficient and represents algorithms that try every possible combination or solution to a problem.
 * **Example:** Solving complex puzzles like the Traveling Salesperson Problem by brute force, or calculating Fibonacci numbers using a naive recursive approach. Even with a small input (like $n = 50$), an $O(2^n)$ algorithm can take years to finish executing on a supercomputer.
 
@@ -88,6 +88,10 @@ The word **Asymptotic** (from the mathematical term *asymptote*) refers to looki
 In computer science, **Asymptotic Notation** means evaluating how an algorithm performs as the input size ($n$) becomes **extremely large (approaching infinity)**. 
 * It ignores hardware speed, system background tasks, and minor constants (like whether a loop takes $n+2$ or $n+5$ steps).
 * It focuses strictly on the "shape" of the growth curve of the algorithm's running time.
+  
+## In short
+
+Asymptotic notation describes how the workload grows for the **CPU**, indicating the algorithm's complexity. Mathematical expressions are used instead of **execution time** because the complexity of an algorithm does not depend on the hardware. This is  called **asymptotic running time**.
 
 ---
 
@@ -117,8 +121,7 @@ graph LR
 
 ---
 
-<details>
-<summary> <i>Click to expand: Mermaid Quick Reference (Extra)</i></summary>
+ **Mermaid Quick Reference (Extra)**
 
 > **What is Mermaid?** A JavaScript-based tool that renders text syntax into visual diagrams directly within Markdown. It uses a logic similar to programming languages combined with CSS-like styling properties.
 
@@ -143,7 +146,7 @@ graph LR
 
 *Test and build diagrams in real-time using the official [Mermaid Live Editor](https://mermaid.live/).*
 
-</details>
+---
 
 ### 1. Big O ($O$) — The Upper Bound (Worst-Case)
 * **Definition:** The mathematical representation of the **maximum** number of steps an algorithm will ever take. It guarantees that the algorithm will never perform worse than this curve.
@@ -172,4 +175,104 @@ graph LR
 | **Big Omega** | $\Omega$ | **Best-Case** | Minimum floor | $\Omega(1)$ — Item is first |
 | **Big Theta** | $\Theta$ | **Tight Bound** | Floor and Ceiling are equal | *Not applicable to Linear Search* |
 
+---
+### What is a `struct`?
 
+In C, standard data types (`int`, `char`, `float`) only hold one single value. A `struct` (structure) allows you to **create your own custom data type**. It acts like a container that groups different variables together under one single name.
+
+### Why use `typedef`?
+
+By adding `typedef` before `struct`, you give your new data type a clean, permanent shortcut name (like `item` or `player`). This means you do not have to type the word `struct` every time you want to create a new variable.
+
+### Accessing Data with the Dot Operator (`.`)
+
+To put data into a struct or read data from it, you use the **dot operator**.
+
+- Syntax: `variable_name.member_name` (for example: `custom_sword.count = 1;`).
+
+### Creating Arrays of Structs
+
+Instead of managing multiple independent arrays for names, counts, and statuses, you can group everything into one clean array of your custom type:
+
+`item inventory[36]; // An entire inventory managed in one single line of code`
+
+### Practice
+
+```
+#include <cs50.h>
+#include <stdio.h>
+
+// 1. Define the custom data type named "item"
+
+typedef struct
+{
+    char *name;
+    int count;
+    bool is_stackable;
+}
+item;
+
+int main(void)
+{
+    // 2. Create a variable using our new "item" type
+    item custom_sword;
+
+    // 3. Assign values to the characteristics using the dot (.) operator
+    custom_sword.name = "Netherite Sword";
+    custom_sword.count = 1;
+    custom_sword.is_stackable = false;
+
+    // 4. Read and print the data inside the struct
+    printf("Item: %s\n", custom_sword.name);
+    printf("Amount: %i\n", custom_sword.count);
+    
+    if (custom_sword.is_stackable)
+    {
+        printf("This item can be stacked.\n");
+    }
+    else
+    {
+        printf("This item cannot be stacked.\n");
+    }
+}
+```
+
+# Quadratic vs. Exponential Growth
+
+Both terms describe how a program slows down as data ($n$) increases, but they grow at vastly different speeds.
+
+### 1. Quadratic Growth: $O(n^2)$
+- **How it works:** The data size ($n$) is the *base*, raised to a constant power (2).
+- **Formula pattern:** $n \times n$
+- **Example:** If $n = 10$, operations = $10^2 = 100$. If $n$ doubles to $20$, operations = $20^2 = 400$ (4 times more).
+- **Context:** Slow for huge datasets, but very common in basic sorting algorithms.
+
+### 2. Exponential Growth: $O(2^n)$
+- **How it works:** The data size ($n$) is the *exponent*. Every time you add just **one** single item to your data, the total work **doubles**.
+- **Formula pattern:** $2 \times 2 \times 2...$ ($n$ times)
+- **Example:** If $n = 10$, operations = $2^{10} = 1,024$. If $n$ doubles to $20$, operations = $2^{20} = 1,048,576$.
+- **Context:** Extremely dangerous. Programs with exponential growth quickly become impossible to run, even for supercomputers.
+
+---
+
+# The Two Sorting Algorithms
+
+Malan uses these two classic algorithms to show **Quadratic $O(n^2)$** efficiency in action:
+### 1. Selection Sort
+- **How it works:** It scans the entire array to find the smallest element, swaps it into the first position, then moves to the next position and repeats.
+- **Analogy:** Looking through a messy pile of cards from left to right, finding the lowest card, putting it at the start, and repeating.
+### 2. Bubble Sort
+- **How it works:** It compares adjacent pairs of numbers next to each other and swaps them if they are in the wrong order. It loops through the array repeatedly until the highest numbers "bubble up" to the end.
+- **Analogy:** Comparing card 1 and card 2, swapping them if needed, then comparing card 2 and card 3, moving down the line until the deck is sorted.
+
+---
+# LaTeX Formatting with `$` (extra)
+
+In Markdown (and Obsidian), the dollar sign `$` is used to render clean, professional math symbols and equations.
+
+- **Inline Math (`$...$`):** Keeps variables or formulas inside the text line.
+  - *Example:* `$n$` becomes $n$.
+- **Display Math (`$$...$$`):** Centers the formula and makes it larger on its own line.
+  - *Example:* `$$\frac{n(n-1)}{2}$$` creates a formatted fraction.
+$$\frac{n(n-1)}{2}$$
+---
