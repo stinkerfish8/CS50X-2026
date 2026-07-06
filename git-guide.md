@@ -71,3 +71,12 @@ When running commands in the terminal, anything written after the main command (
 > `-r` $\rightarrow$ Apply to the entire folder and its contents recursively.
 > `--cached` $\rightarrow$ Apply only to Git's index; do not touch local files.
 
+# Syncing Multiple Files at Once in Git
+
+You can stage and commit all your modifications, new files, and deletions simultaneously using a single shortcut.
+## The Directory Shortcut (`.`)
+Instead of naming a specific file, use a dot (`.`) with the add command:
+
+```bash
+git add .
+```
