@@ -198,7 +198,7 @@ Instead of managing multiple independent arrays for names, counts, and statuses,
 
 ### Practice
 
-```
+``` c
 #include <cs50.h>
 #include <stdio.h>
 
@@ -370,3 +370,39 @@ $$\text{Total Time} = (\text{Number of levels}) \times (\text{Work per level}) =
 ## 3. Comparison with Bubble Sort
 * **Bubble Sort ($O(n^2)$):** As $n$ grows, the execution time grows quadratically. If $n = 10,000$, Bubble Sort takes roughly $100,000,000$ operations.
 * **Merge Sort ($O(n \log n)$):** If $n = 10,000$, $\log_2(10,000) \approx 14$. Therefore, Merge Sort takes roughly $10,000 \times 14 = 140,000$ operations. It is exponentially faster for large datasets.
+
+> [!NOTE]
+> **The Origin and Definition of the Word "Algorithm"**
+> 
+> The word **algorithm** is a medieval Latin corruption of a proper name. It originates from the 9th-century Persian mathematician, astronomer, and geographer **Muḥammad ibn Mūsā al-Khwārizmī**. When his groundbreaking mathematical treatises on Hindu-Arabic numerals and algebra were translated into Latin during the Middle Ages, his epithet *al-Khwārizmī* (meaning "the native of Khwarazm") was phonetically adapted into **"Algoritmi"**. 
+> 
+> Over time, the phrase *"dixit Algoritmi"* ("thus said Algoritmi") became synonymous with the step-by-step procedures for calculation he developed, eventually evolving into the modern term we use today to describe a finite sequence of well-defined, unambiguous instructions to solve a problem.
+>
+> ---
+> **Sources & Authoritative References (Treccani):**
+> - [Vocabolario Treccani — Algoritmo](https://www.treccani.it/vocabolario/algoritmo/) (Etymology and linguistic definition)
+> - [Enciclopedia della Matematica Treccani — Algoritmo](https://www.treccani.it/enciclopedia/algoritmo_(Enciclopedia-della-Matematica)/) (Technical analysis of mathematical and computational requirements)
+
+## The Call Stack
+
+When a program runs, the CPU needs a way to keep track of which function is currently executing, where it was called from, and what local variables belong to it. This tracking happens in a specific region of the RAM called the **Stack**.
+
+The **Call Stack** is a data structure that operates on a **LIFO** (Last In, First Out) basis. You can think of it like a stack of t-shirts in a drawer: you can only add or remove a shirt from the very top.
+
+### Key Concepts
+
+*   **Stack Frame (or Function Frame):** A designated chunk of memory allocated for a single function when it is called. It contains the function's local variables, arguments, and the return address (where to go back in the code when the function finishes).
+*   **Active Frame:** Although multiple stack frames can exist in memory simultaneously (e.g., when one function calls another), only the frame at the very top of the stack is active and accessible at any given time.
+*   **Push:** The act of adding a new stack frame to the top of the stack when a function is called.
+*   **Pop:** The act of removing a stack frame from the top of the stack when a function finishes executing (`return`).
+
+> [!NOTE]
+**Memory Doesn't Physically Move**
+When a frame is "popped" and "goes away," the physical memory cells do not move, nor are they instantly wiped clean. Instead, a CPU register called the **Stack Pointer** simply moves back to the previous frame. The memory used by the completed function is marked as available, and its old data will remain there until it gets overwritten by the next function call.
+
+### Memory Layout: Stack vs. Heap (extra)
+
+The RAM allocated for a running program is divided into distinct sections:
+
+*   **The Stack:** A highly organized, fast, and automatically managed memory area used for local variables and function calls (via stack frames).
+*   **The Heap:** A large, unorganized pool of memory used for dynamic memory allocation. Unlike the stack, data in the heap does not follow a strict LIFO order and must be managed manually by the programmer.
