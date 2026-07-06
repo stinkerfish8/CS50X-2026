@@ -11,13 +11,14 @@
             "id": "e2502476c278de46",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.base",
-                "viewName": "Table"
+                "file": "week3-algorithms/notes.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "notes"
             }
           }
         ]
@@ -93,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled.base",
+                "file": "week3-algorithms/notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Untitled"
+              "title": "Backlinks for notes"
             }
           },
           {
@@ -183,14 +184,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4237966e015d3d0a",
+  "active": "e2502476c278de46",
   "lastOpenFiles": [
+    "Untitled.base",
     "week3-algorithms/notes.md",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "md-guide.md",
     "README.md",
-    "Untitled.base",
     "week0-scratch/lecture0.md",
     "week0-scratch/README.md",
     "week0-scratch/hrh.png",
