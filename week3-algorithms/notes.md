@@ -19,9 +19,7 @@ Instead of using a single counter, this approach divides the problem into identi
 
 ### 3. Key Distinction: Iteration vs. Recursion
 * **Iteration:** Solving a problem by repeating a process using loops (like `for` or `while` statements) over a dataset.
-* **Recursion:** A technical concept where a function solves a problem by calling a smaller version of itself. 
-  * *Note: We will implement the code for this later in the lecture.*
-
+* **Recursion:** A technical concept where a function solves a problem by calling a smaller version of itself.
 ---
 
 ## Understanding Big O Notation
