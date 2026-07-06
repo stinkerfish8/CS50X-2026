@@ -86,3 +86,36 @@ Use triple backticks (\`\`\`) and specify the language name for syntax highlight
 def hello_world():
     print("Hello, World!")
     return True
+```
+
+## 7. Callouts (Admonitions)
+Extended syntax supported by Obsidian, GitHub, and Notion-like editors to create visual alert boxes.
+
+> [!NOTE]
+> This is a standard note callout. Useful for general tips or thoughts.
+
+> [!WARNING]
+> This is a warning callout. Use it to highlight critical details or common mistakes.
+
+## 8. Advanced Elements
+
+### LaTeX (Mathematical Notation)
+Obsidian and advanced Markdown editors support LaTeX for rendering mathematical expressions.
+* **Inline Math:** Wrap the expression in single dollar signs `$`. 
+  Example: The Pythagorean theorem is $a^2 + b^2 = c^2$.
+* **Display Math (Block):** Wrap the expression in double dollar signs `$$` on separate lines to center it.
+  Example:
+  $$E = mc^2$$
+
+### Mermaid (Diagrams and Flowcharts)
+You can create diagrams, flowcharts, and sequence charts using text syntax inside a fenced code block labeled `mermaid`.
+
+```mermaid
+flowchart TD
+    A[Start: main] --> B(Call Function)
+    B --> C{Active Frame?}
+    C -- Yes --> D[Execute Code]
+    C -- No --> E[Wait in Stack]
+    D --> F[Return / Pop]
+    F --> A
+```
