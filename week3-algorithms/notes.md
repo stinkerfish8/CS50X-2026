@@ -276,3 +276,97 @@ In Markdown (and Obsidian), the dollar sign `$` is used to render clean, profess
   - *Example:* `$$\frac{n(n-1)}{2}$$` creates a formatted fraction.
 $$\frac{n(n-1)}{2}$$
 ---
+
+> *appunto sul lessico: from the get-go = dall'inizio*
+
+# Understanding Recursion: Notes & Analogies
+
+## 1. The Core Concept
+Recursion occurs when a function calls itself to solve a smaller instance of the same problem. Instead of using iterative loops (`for` or `while`) to compute everything upfront (in anticipo), a recursive function delegates smaller chunks of work to subsequent versions of itself.
+
+## 2. Iterative vs. Recursive Mindset
+* **Iterative Approach (Bottom-Up / Counting):** Computes the output step-by-step using a loop. It relies on a state counter that advances until a condition is met.
+* **Recursive Approach (Top-Down / Deferred):** Breaks the problem down into a **Base Case** and a **Recursive Case**. It accumulates operations in memory and executes them in reverse order once the bottom is reached.
+
+---
+
+## 3. The Minecraft Pyramid Analogy
+<small><i>To my old friend T: I was crushing it, not K. Memory doesn't scale, logic does.</i></small>
+
+When building a maximum-buff beacon pyramid in Minecraft, a purely mnemonic approach relies on remembering static data (e.g., *"the base is 9x9"*). A computational/recursive approach relies on system rules:
+1.  **Base Case (The minimum functional unit):** A $3 \times 3$ layer.
+2.  **Height Variable ($n$):** The total number of layers.
+
+To build a pyramid of height $n$, you don't need to pre-calculate the base. The system evaluates the layers backward until it hits the minimum $3 \times 3$ unit, and then builds the rest mechanically by expanding outward layer by layer.
+
+<small><i>This wasn't a matter of personal taste or subjective opinions. Objectively, teaching the logical rule was the superior choice. Video games are not just games; they are powerful educational tools. Relying purely on memory forces a kid's brain into a rigid system that cannot scale. If they only memorize that a maximum base is 9x9, they get completely stuck when trying to build a custom 20-layer pyramid. By teaching the systematic rule of expanding outward layer by layer, you aren't just teaching a building trick: you are actively developing an algorithmic mindset and genuine problem-solving skills.</i></small>
+
+---
+
+## 4. Code Breakdown (CS50 `draw` Example)
+In David J. Malan's CS50 lecture, the recursive function to draw a half-pyramid looks like this:
+
+```c
+void draw(int n)
+{
+    // 1. Base Case
+    if (n <= 0)
+    {
+        return;
+    }
+
+    // 2. Recursive Case (The Pause)
+    draw(n - 1);
+
+    // 3. Action (The Print)
+    for (int i = 0; i < n; i++)
+    {
+        printf("#");
+    }
+    printf("\n");
+} 
+```
+
+## 6. Understanding Segmentation Fault & Core Dump (extra)
+
+### Segmentation Fault (SegFault)
+A **Segmentation Fault** is a generic error triggered by the operating system when a program attempts to access a restricted memory zone that does not belong to it. 
+* In the context of recursion, it is usually the direct consequence of a **Stack Overflow**. When the memory stack runs out of space due to infinite recursive calls, the program spills over into forbidden memory territory, and the OS terminates it immediately.
+
+### Core Dump
+Historically, computer RAM was made of magnetic-core memory, which is why Unix/Linux systems still refer to the active RAM as the **"Core"**.
+* **"Dumped"** means to empty or unload.
+* When a program crashes due to a critical error like a SegFault, the operating system takes a "snapshot" of the exact state of the RAM at that millisecond and dumps it into a file (usually named `core`).
+* A Core Dump does not clear or fix the memory; it acts as a flight data recorder (black box) for post-mortem debugging, allowing programmers to inspect variables and the stack state at the moment of the crash.
+
+# Merge Sort & Big O Complexity
+
+## 1. The Core Concept (Divide and Conquer)
+Merge Sort is a highly efficient, recursive sorting algorithm that uses the **Divide and Conquer** strategy. Instead of sorting the entire list at once, it breaks the problem down into smaller, easily manageable sub-problems:
+1.  **Divide:** Split the unsorted list in half until you have sub-lists that contain only 1 element each.
+2.  **Conquer:** A list with a single element is inherently sorted (this is the **Base Case**).
+3.  **Combine (Merge):** Recursively merge the sub-lists back together in the correct sorted order until you get the final sorted list.
+
+## 2. Why is Merge Sort $O(n \log n)$?
+The time complexity of Merge Sort is always $O(n \log n)$, regardless of whether the array is already sorted or completely reversed. This formula comes from multiplying two distinct operations that happen simultaneously:
+
+### Part 1: The $\log n$ (The "Divide" Phase)
+Every time you split the array in half, you are performing a logarithmic operation. 
+* If you have $8$ elements, you split them into $4$, then $2$, then $1$. That takes **3 steps**.
+* Mathematically, $\log_2(8) = 3$. 
+The logarithm ($\log n$) represents the number of times you can divide an array of size $n$ in half before reaching individual elements. This determines the **height of the recursion tree**.
+
+### Part 2: The $n$ (The "Merge" Phase)
+Once the array is split into single elements, you must merge them back together. 
+* To merge two sorted halves, the computer has to look at every single element to decide which one is smaller and copy it into the new array.
+* If the total number of elements is $n$, each level of the recursion tree requires exactly $n$ operations to merge the pieces back.
+
+### The Combination: $n \times \log n$
+Since you have to perform $n$ merge operations at each of the $\log n$ levels of division, you multiply them together:
+$$\text{Total Time} = (\text{Number of levels}) \times (\text{Work per level}) = \log n \times n = n \log n$$
+
+---
+
+## 3. Comparison with Bubble Sort
+* **Bubble Sort ($O(n^2)$):** As $n$ grows, the execution time grows quadratically. If $n = 10,000$, Bubble Sort takes roughly $100,000,000$ operations.
+* **Merge Sort ($O(n \log n)$):** If $n = 10,000$, $\log_2(10,000) \approx 14$. Therefore, Merge Sort takes roughly $10,000 \times 14 = 140,000$ operations. It is exponentially faster for large datasets.
