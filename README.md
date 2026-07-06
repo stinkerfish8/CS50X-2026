@@ -16,7 +16,7 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 * [x] **Week 0: Scratch** - [Notes & Practice](./week0-scratch/)
 * [x] **Week 1: C** - [Notes](./week1-C/)
 * [x] **Week 2: Arrays** - [Notes & Practice](./week2-Arrays/)
-* [ ] **Week 3: Algorithms** - [Notes & Practice](./week3-Algorithms/)
+* [ ] **Week 3: Algorithms** - [Notes & Practice](./week3-algorithms/)
 * [ ] **Week 4: Memory**
 * [ ] **Week 5: Data Structures** 🎯 *[My Minimum Goal]*
 * [ ] **Week 6: Python**
