@@ -80,3 +80,84 @@ Instead of naming a specific file, use a dot (`.`) with the add command:
 ```bash
 git add .
 ```
+
+# Recursion in Action: Factorial and Fibonacci
+
+In computer science, recursion is an algorithmic pattern where a function calls itself to solve smaller instances of the same problem. To avoid infinite loops and a subsequent **Stack Overflow**, every recursive function must possess a **Base Case** (the stopping condition) and a **Recursive Case** (the step that reduces the problem).
+
+## 1. The Factorial Function ($n!$)
+
+The factorial of a positive integer $n$ (written as $n!$) is the product of all positive integers less than or equal to $n$.
+
+### Mathematical Concept
+
+$$n! = n \times (n - 1) \times (n - 2) \times \dots \times 1$$
+
+- _Example ($4!$):_ $4! = 4 \times 3 \times 2 \times 1 = 24$
+### The Recursive Core
+
+Factorial is naturally recursive because $4!$ can be rewritten as $4 \times 3!$. Therefore, the general rule to find the factorial of $n$ is to multiply $n$ by the factorial of $n - 1$.
+
+- **Base Case:** If $n = 0$ or $n = 1$, return `1`. _(Note: $0! = 1$ because there is exactly 1 unique way to arrange 0 items - by leaving the space empty).
+
+- **Recursive Case:** For any $n > 1$, return $n \times \text{factorial}(n - 1)$.
+
+``` c
+int factorial(int n)
+{
+    // Base Case
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    // Recursive Case
+    return n * factorial(n - 1);
+}
+```
+
+## 2. The Fibonacci Sequence
+
+The Fibonacci sequence is a famous mathematical series where each number is the sum of the two preceding ones, usually starting from 0 and 1.
+
+$$\text{Sequence: } 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 \dots$$
+
+### The Recursive Core
+
+To find the Fibonacci number at position $n$, the system must split into **two recursive calls** simultaneously. It calculates the value of the two previous positions ($n-1$ and $n-2$) and adds them together.
+
+- **Base Cases:**
+    
+    - If $n = 0$, return `0`.
+        
+    - If $n = 1$, return `1`.
+        
+- **Recursive Case:** For any $n > 1$, return $\text{fibonacci}(n - 1) + \text{fibonacci}(n - 2)$.
+    
+
+### C Code Implementation
+
+C
+
+```
+int fibonacci(int n)
+{
+    // Base Cases
+    if (n == 0)
+    {
+        return 0;
+    }
+    if (n == 1)
+    {
+        return 1;
+    }
+    // Recursive Case
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
+
+## Summary Comparison
+
+| **Function**  | **Base Case Condition** | **Recursive Case Formula**                | **Call Stack Behavior**                            |
+| ------------- | ----------------------- | ----------------------------------------- | -------------------------------------------------- |
+| **Factorial** | `n == 0` or `n == 1`    | $n \times \text{func}(n - 1)$             | Single linear chain of frames on the stack.        |
+| **Fibonacci** | `n == 0` or `n == 1`    | $\text{func}(n - 1) + \text{func}(n - 2)$ | Generates a branching tree of frames on the stack. |
