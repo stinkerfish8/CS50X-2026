@@ -1,5 +1,20 @@
 # Week 3: Algorithms
 
+## Index
+
+* [Counting Methods & Visualizing Algorithms](#counting-methods--visualizing-algorithms)
+* [Understanding Big O Notation](#understanding-big-o-notation)
+* [Running Time and Time Complexity](#running-time-and-time-complexity)
+* [Asymptotic Notation (Notazione Asintotica)](#asymptotic-notation-notazione-asintotica)
+* [The Three Types of Asymptotic Boundaries](#the-three-types-of-asymptotic-boundaries)
+* [Quadratic vs. Exponential Growth](#quadratic-vs-exponential-growth)
+* [The Two Sorting Algorithms](#the-two-sorting-algorithms)
+* [Understanding Recursion: Notes & Analogies](#understanding-recursion-notes--analogies)
+* [Merge Sort & Big O Complexity](#merge-sort--big-o-complexity)
+* [The Call Stack](#the-call-stack)
+* [Recursion in Action: Factorial and Fibonacci](#recursion-in-action-factorial-and-fibonacci)
+* [Defining Custom Data Structures in C](#defining-custom-data-structures-in-c)
+
 ## Counting Methods & Visualizing Algorithms
 
 When we need to solve a problem, like counting the total number of people in a room, the efficiency of our program depends entirely on the algorithm we choose.
@@ -167,74 +182,13 @@ graph LR
 
 ### Quick Comparison Table for Reference
 
-| Notation | Symbol | Scenario | What it represents | Example (Linear Search) |
-| :--- | :---: | :--- | :--- | :--- |
-| **Big O** | $O$ | **Worst-Case** | Maximum ceiling | $O(n)$ — Item is last |
-| **Big Omega** | $\Omega$ | **Best-Case** | Minimum floor | $\Omega(1)$ — Item is first |
+| Notation      |  Symbol  | Scenario        | What it represents          | Example (Linear Search)           |
+| :------------ | :------: | :-------------- | :-------------------------- | :-------------------------------- |
+| **Big O**     |   $O$    | **Worst-Case**  | Maximum ceiling             | $O(n)$ — Item is last             |
+| **Big Omega** | $\Omega$ | **Best-Case**   | Minimum floor               | $\Omega(1)$ — Item is first       |
 | **Big Theta** | $\Theta$ | **Tight Bound** | Floor and Ceiling are equal | *Not applicable to Linear Search* |
 
 ---
-### What is a `struct`?
-
-In C, standard data types (`int`, `char`, `float`) only hold one single value. A `struct` (structure) allows you to **create your own custom data type**. It acts like a container that groups different variables together under one single name.
-
-### Why use `typedef`?
-
-By adding `typedef` before `struct`, you give your new data type a clean, permanent shortcut name (like `item` or `player`). This means you do not have to type the word `struct` every time you want to create a new variable.
-
-### Accessing Data with the Dot Operator (`.`)
-
-To put data into a struct or read data from it, you use the **dot operator**.
-
-- Syntax: `variable_name.member_name` (for example: `custom_sword.count = 1;`).
-
-### Creating Arrays of Structs
-
-Instead of managing multiple independent arrays for names, counts, and statuses, you can group everything into one clean array of your custom type:
-
-`item inventory[36]; // An entire inventory managed in one single line of code`
-
-### Practice
-
-``` c
-#include <cs50.h>
-#include <stdio.h>
-
-// 1. Define the custom data type named "item"
-
-typedef struct
-{
-    char *name;
-    int count;
-    bool is_stackable;
-}
-item;
-
-int main(void)
-{
-    // 2. Create a variable using our new "item" type
-    item custom_sword;
-
-    // 3. Assign values to the characteristics using the dot (.) operator
-    custom_sword.name = "Netherite Sword";
-    custom_sword.count = 1;
-    custom_sword.is_stackable = false;
-
-    // 4. Read and print the data inside the struct
-    printf("Item: %s\n", custom_sword.name);
-    printf("Amount: %i\n", custom_sword.count);
-    
-    if (custom_sword.is_stackable)
-    {
-        printf("This item can be stacked.\n");
-    }
-    else
-    {
-        printf("This item cannot be stacked.\n");
-    }
-}
-```
-
 # Quadratic vs. Exponential Growth
 
 Both terms describe how a program slows down as data ($n$) increases, but they grow at vastly different speeds.
@@ -264,18 +218,19 @@ Malan uses these two classic algorithms to show **Quadratic $O(n^2)$** efficienc
 - **Analogy:** Comparing card 1 and card 2, swapping them if needed, then comparing card 2 and card 3, moving down the line until the deck is sorted.
 
 ---
-# LaTeX Formatting with `$` (extra)
+> [!NOTE]
+> **LaTeX Formatting with $ (extra)**
+> 
+> In Markdown (and Obsidian), the dollar sign `$` is used to render clean, professional math symbols and equations.
+> 
+> * **Inline Math (`$...$`):** Keeps variables or formulas inside the text line.
+>   Example: `$n$` becomes $n$.
+> * **Display Math (`$$...$$`):** Centers the formula and makes it larger on its own line.
+>   Example: `$$\frac{n(n-1)}{2}$$` creates a formatted fraction.
+> 
+> $$\frac{n(n-1)}{2}$$
 
-In Markdown (and Obsidian), the dollar sign `$` is used to render clean, professional math symbols and equations.
-
-- **Inline Math (`$...$`):** Keeps variables or formulas inside the text line.
-  - *Example:* `$n$` becomes $n$.
-- **Display Math (`$$...$$`):** Centers the formula and makes it larger on its own line.
-  - *Example:* `$$\frac{n(n-1)}{2}$$` creates a formatted fraction.
-$$\frac{n(n-1)}{2}$$
----
-
-> *appunto sul lessico: from the get-go = dall'inizio*
+*appunto sul lessico: from the get-go = dall'inizio*
 
 # Understanding Recursion: Notes & Analogies
 
@@ -467,8 +422,6 @@ To find the Fibonacci number at position $n$, the system must split into **two r
 
 ### C Code Implementation
 
-C
-
 ``` c
 int fibonacci(int n)
 {
@@ -492,4 +445,101 @@ int fibonacci(int n)
 |---|---|---|---|
 |**Factorial**|`n == 0` or `n == 1`|$n \times \text{func}(n - 1)$|Single linear chain of frames on the stack.|
 |**Fibonacci**|`n == 0` or `n == 1`|$\text{func}(n - 1) + \text{func}(n - 2)$|Generates a branching tree of frames on the stack.|
+
+## 3. The Collatz Conjecture
+
+Introduced by mathematician Lothar Collatz in 1937, this is one of the most famous unsolved problems in mathematics. The premise is simple: take any positive integer $n$ and repeat these two rules:
+* If $n$ is **even**, divide it by 2 $\rightarrow$ $(\frac{n}{2})$
+* If $n$ is **odd**, multiply it by 3 and add 1 $\rightarrow$ $(3n + 1)$
+
+The conjecture states that **no matter what number you start with, the sequence will always eventually collapse down to 1**, entering an infinite loop ($1 \rightarrow 4 \rightarrow 2 \rightarrow 1$). Even though it has been verified by supercomputers for numbers up to huge magnitudes, no one has ever been able to prove mathematically that this is true for *every* possible number.
+
+---
+
+### Why are we using this as an Example?
+
+#### 1. Multiple Recursive Cases (Mutually Exclusive)
+Collatz introduces a branching logic: you still have a single point of exit (`n == 1`), but you have **multiple, mutually exclusive paths** to get there depending on the input. It forces you to combine conditional statements (`if / else`) with recursion.
+
+#### 2. Non-Linear Predictability
+With Collatz, the number of steps and the path fluctuate wildly. If you pass `7`, the numbers will shoot up to `22`, bounce down to `11`, spike up to `34`, and wild-ride through 16 steps before crashing down to 1. It proves how recursion can handle erratic, unpredictable algorithmic behaviors effortlessly.
+
+#### 3. Counting via the Call Stack (State without Variables)
+It serves as the ultimate test to understand the **Call Stack**. Instead of using a standard loop with an iterative variable counter (like `count++`), Collatz shows how you can track state and count operations across multiple dimensions of memory by simply leaving an addition "hanging" (`return 1 + collatz(...)`) until the base case acts as an anchor.
+
+``` c
+int collatz (int n) 
+{
+	// --- BASE CASE
+	if (n == 1) 
+		{
+		return 0;
+		}
+		
+	// --- MULTIPLE RECURSIVE CASES
+	if (n % 2 == 0) // se n è pari 
+		{
+		return 1 + collatz (n / 2);
+		} 
+	else // se n è dispari
+		{
+		return 1 + collatz (3 * n + 1);
+		}
+}
+```
+
+---
+# Defining Custom Data Structures in C
+
+## 1. What is a `struct`?
+In C, standard data types (`int`, `char`, `float`) only hold one single value. A `struct` (structure) allows you to **create your own custom data type**. It acts like a container that groups different variables together under one single name.
+
+## 2. Why use `typedef`?
+By adding `typedef` before `struct`, you give your new data type a clean, permanent shortcut name (like `item` or `player`). This means you do not have to type the word `struct` every time you want to create a new variable.
+
+## 3. Accessing Data with the Dot Operator (`.`)
+To put data into a struct or read data from it, you use the **dot operator**.
+* **Syntax:** `variable_name.member_name` (for example: `custom_sword.count = 1;`).
+
+## 4. Creating Arrays of Structs
+Instead of managing multiple independent arrays for names, counts, and statuses, you can group everything into one clean array of your custom type:
+```c
+item inventory[36]; // An entire inventory managed in one single line of code
+
+#include <cs50.h>
+#include <stdio.h>
+
+// 1. Define the custom data type named "item"
+typedef struct
+{
+    char *name;
+    int count;
+    bool is_stackable;
+}
+item;
+
+int main(void)
+{
+    // 2. Create a variable using our new "item" type
+    item custom_sword;
+
+    // 3. Assign values to the characteristics using the dot (.) operator
+    custom_sword.name = "Netherite Sword";
+    custom_sword.count = 1;
+    custom_sword.is_stackable = false;
+
+    // 4. Read and print the data inside the struct
+    printf("Item: %s\n", custom_sword.name);
+    printf("Amount: %i\n", custom_sword.count);
+    
+    if (custom_sword.is_stackable)
+    {
+        printf("This item can be stacked.\n");
+    }
+    else
+    {
+        printf("This item cannot be stacked.\n");
+    }
+}
+```
 

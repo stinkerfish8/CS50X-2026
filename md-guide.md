@@ -180,3 +180,14 @@ flowchart TD
     D --> F[Return / Pop]
     F --> A
 ```
+
+## LaTeX Formatting with $
+
+ In Markdown (and Obsidian), the dollar sign `$` is used to render clean, professional math symbols and equations.
+ 
+ * **Inline Math (`$...$`):** Keeps variables or formulas inside the text line.
+	*Example:* `$n$` becomes $n$.
+* **Display Math (`$$...$$`):** Centers the formula and makes it larger on its own line.
+	 *Example:* `$$\frac{n(n-1)}{2}$$` creates a formatted fraction.
+ $$\frac{n(n-1)}{2}$$
+ 
