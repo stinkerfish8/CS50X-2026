@@ -158,16 +158,6 @@ Extended syntax supported by Obsidian, GitHub, and Notion-like editors to create
 
 ## 8. Advanced Elements
 
-### LaTeX (Mathematical Notation)
-Obsidian and advanced Markdown editors support LaTeX for rendering mathematical expressions.
-
-* **Inline Math:** Wrap the expression in single dollar signs `$`. 
-  Example: The Pythagorean theorem is $a^2 + b^2 = c^2$.
-* **Display Math (Block):** Wrap the expression in double dollar signs `$$` on separate lines to center it.
-  
-* Example:
-  $$E = mc^2$$
-
 ### Mermaid (Diagrams and Flowcharts)
 You can create diagrams, flowcharts, and sequence charts using text syntax inside a fenced code block labeled `mermaid`.
 
@@ -181,7 +171,7 @@ flowchart TD
     F --> A
 ```
 
-## LaTeX Formatting with $
+# LaTeX (Mathematical Expressions)
 
  In Markdown (and Obsidian), the dollar sign `$` is used to render clean, professional math symbols and equations.
  
@@ -190,4 +180,46 @@ flowchart TD
 * **Display Math (`$$...$$`):** Centers the formula and makes it larger on its own line.
 	 *Example:* `$$\frac{n(n-1)}{2}$$` creates a formatted fraction.
  $$\frac{n(n-1)}{2}$$
+# LaTeX for Algorithm Analysis
+
+In LaTeX, curly braces `{}` act as **grouping tokens**. Instead of being printed as text, they define the **scope** of a command, telling LaTeX exactly which part of the expression the operator applies to.
+
+---
+### 1. The Role of Curly Braces `{}`
+
+If a command needs to apply to more than a single character, you must enclose the target block within braces.
+
+* **Exponents (`^`)**: Typing `$x^10$` renders as $x^10$ (only the first digit is elevated). To elevate the whole number, group it: `$x^{10}$` $\rightarrow$ $x^{10}$.
+* **Fractions (`\frac`)**: They require two sequential groups of braces: `\frac{numerator}{denominator}`. For example: `$\frac{a+b}{c}$` $\rightarrow$ $\frac{a+b}{c}$.
+
+> [!NOTE]
+> To display literal curly braces in your text without triggering a command, escape them with a backslash: `$\{ x \}$` $\rightarrow$ $\{ x \}$.
+
+---
+
+### 2. Common Operators for Big O Notation
+
+| Operation / Symbol | LaTeX Code | Rendered Output |
+| :--- | :--- | :--- |
+| **Logarithm** | `$\log n$` | $\log n$ |
+| **Greater than or equal to** | `$n \ge 1$` | $n \ge 1$ |
+| **Less than or equal to** | `$n \le 1$` | $n \le 1$ |
+| **Multiplication (dot)** | `$n \cdot \log n$` | $n \cdot \log n$ |
+| **Multiplication (cross)** | `$2 \times 2$` | $2 \times 2$ |
+| **Omega Notation** | `$\Omega(n)$` | $\Omega(n)$ |
+| **Theta Notation** | `$\Theta(n)$` | $\Theta(n)$ |
+
+---
+
+### 3. Auto-Scaling Parentheses
+
+Standard parentheses `( )` do not scale automatically and will look too small when enclosing tall elements like fractions. 
+
+To dynamically adjust their height to match the expression inside, prepend the modifiers `\left` and `\right` before the brackets:
+
+* **Unscaled:** `$(\frac{n}{2})$` $\rightarrow$ $(\frac{n}{2})$
+* **Auto-scaled:** `$\left(\frac{n}{2}\right)$` $\rightarrow$ $\left(\frac{n}{2}\right)$
+
+> [!TIP]
+> This dynamic scaling works seamlessly with any delimiter type, including square brackets `\left[` / `\right]` and escaped curly braces `\left\{` / `\right\}`.
  

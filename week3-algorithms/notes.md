@@ -213,27 +213,22 @@ Malan uses these two classic algorithms to show **Quadratic $O(n^2)$** efficienc
 ### 1. Selection Sort
 - **How it works:** It scans the entire array to find the smallest element, swaps it into the first position, then moves to the next position and repeats.
 - **Analogy:** Looking through a messy pile of cards from left to right, finding the lowest card, putting it at the start, and repeating.
+- 
+> [!NOTE]
+> **In-Place Algorithms**
+> An algorithm is considered **in-place** when it mutates the input data directly within the original data structure, without requiring extra auxiliary memory.
+> 
+> * **Memory Efficiency**: It operates with a space complexity of $O(1)$ because it only uses a tiny, constant amount of RAM for temporary variables during swaps.
+> * **Selection & Bubble Sort**: Both are in-place algorithms; they sort the array directly on the spot.
+> * **Merge Sort**: It is **not** an in-place algorithm because it must allocate temporary arrays in RAM to merge the sorted halves, resulting in a space complexity of $O(n)$.
 ### 2. Bubble Sort
 - **How it works:** It compares adjacent pairs of numbers next to each other and swaps them if they are in the wrong order. It loops through the array repeatedly until the highest numbers "bubble up" to the end.
 - **Analogy:** Comparing card 1 and card 2, swapping them if needed, then comparing card 2 and card 3, moving down the line until the deck is sorted.
 
 ---
-> [!NOTE]
-> **LaTeX Formatting with $ (extra)**
-> 
-> In Markdown (and Obsidian), the dollar sign `$` is used to render clean, professional math symbols and equations.
-> 
-> * **Inline Math (`$...$`):** Keeps variables or formulas inside the text line.
->   Example: `$n$` becomes $n$.
-> * **Display Math (`$$...$$`):** Centers the formula and makes it larger on its own line.
->   Example: `$$\frac{n(n-1)}{2}$$` creates a formatted fraction.
-> 
-> $$\frac{n(n-1)}{2}$$
-
 *appunto sul lessico: from the get-go = dall'inizio*
 
-# Understanding Recursion: Notes & Analogies
-
+# Understanding Recursion
 ## 1. The Core Concept
 Recursion occurs when a function calls itself to solve a smaller instance of the same problem. Instead of using iterative loops (`for` or `while`) to compute everything upfront (in anticipo), a recursive function delegates smaller chunks of work to subsequent versions of itself.
 
@@ -321,6 +316,7 @@ $$\text{Total Time} = (\text{Number of levels}) \times (\text{Work per level}) =
 ---
 
 ## 3. Comparison with Bubble Sort
+
 * **Bubble Sort ($O(n^2)$):** As $n$ grows, the execution time grows quadratically. If $n = 10,000$, Bubble Sort takes roughly $100,000,000$ operations.
 * **Merge Sort ($O(n \log n)$):** If $n = 10,000$, $\log_2(10,000) \approx 14$. Therefore, Merge Sort takes roughly $10,000 \times 14 = 140,000$ operations. It is exponentially faster for large datasets.
 
