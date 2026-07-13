@@ -14,7 +14,7 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 
 ## Journey Progress
 * [x] **Week 0: Scratch** - [Notes & Practice](./week0-scratch/)
-* [x] **Week 1: C** - [Notes](./week1-C/)
+* [x] **Week 1: C** - [Notes & Practice](./week1-C/)
 * [x] **Week 2: Arrays** - [Notes & Practice](./week2-Arrays/)
 * [x] **Week 3: Algorithms** - [Notes & Practice](./week3-algorithms/)
 * [ ] **Week 4: Memory**
