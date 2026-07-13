@@ -213,7 +213,7 @@ Malan uses these two classic algorithms to show **Quadratic $O(n^2)$** efficienc
 ### 1. Selection Sort
 - **How it works:** It scans the entire array to find the smallest element, swaps it into the first position, then moves to the next position and repeats.
 - **Analogy:** Looking through a messy pile of cards from left to right, finding the lowest card, putting it at the start, and repeating.
-- 
+
 > [!NOTE]
 > **In-Place Algorithms**
 > An algorithm is considered **in-place** when it mutates the input data directly within the original data structure, without requiring extra auxiliary memory.
@@ -499,6 +499,7 @@ To put data into a struct or read data from it, you use the **dot operator**.
 
 ## 4. Creating Arrays of Structs
 Instead of managing multiple independent arrays for names, counts, and statuses, you can group everything into one clean array of your custom type:
+
 ```c
 item inventory[36]; // An entire inventory managed in one single line of code
 
