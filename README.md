@@ -7,7 +7,7 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 > Note: I am aiming for 100% completion by solving all mandatory, practice, and optional exercises.
 
 ## Useful Resources
-* [My Personal CheatSheet](cheatsheet.md)
+* [My Personal CheatSheets](./xtra-cheatsheets/)
 * [CS50x Official Course (edX)](https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home)
 * [Course Documentation](https://cs50.harvard.edu/x/2026/)
 * [Manual Pages](https://manual.cs50.io/)
