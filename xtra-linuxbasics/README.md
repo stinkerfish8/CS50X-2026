@@ -2,7 +2,7 @@
 
 This section dedicated to my study of Linux basics and command-line fundamentals. 
 
-Based on the official edX course: [Linux Basics: The Command Line Interface](https://www.edx.org/learn/command-line/dartmouth-college-linux-basics-the-command-line-interface)
+Based on the official edX course: [Linux Basics: The Command Line Interface]([https://www.edx.org/learn/command-line/dartmouth-college-linux-basics-the-command-line-interface](https://www.edx.org/learn/linux/dartmouth-college-linux-basics-the-command-line-interface))
 
 ---
 ## Index
