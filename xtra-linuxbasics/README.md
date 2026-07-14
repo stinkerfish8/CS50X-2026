@@ -1,0 +1,20 @@
+# Linux Basics: The Command Line Interface
+
+This section dedicated to my study of Linux basics and command-line fundamentals. 
+
+Based on the official edX course: [Linux Basics: The Command Line Interface](https://www.edx.org/learn/command-line/dartmouth-college-linux-basics-the-command-line-interface)
+
+---
+## Index
+
+1. Introduction to UNIX & CLI
+2. File System Navigation
+3. File & Directory Management
+4. Permissions & Security
+5. System Monitoring & Processes
+
+---
+
+## Tools
+*   **Platform:** edX (Dartmouth College)
+*   **Practice Environment:** WebLinux (built-in course terminal)
