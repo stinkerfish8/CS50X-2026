@@ -14,11 +14,11 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 * [Scratch Editor](https://scratch.mit.edu/projects/editor/)
 
 ## Journey Progress
-* [x] **Week 0: Scratch** - [Notes & Practice](./week0-scratch/)
-* [x] **Week 1: C** - [Notes & Practice](./week1-C/)
-* [x] **Week 2: Arrays** - [Notes & Practice](./week2-Arrays/)
-* [x] **Week 3: Algorithms** - [Notes & Practice](./week3-algorithms/)
-* [ ] **EXTRA - Linux Basics: The Command Line Interface**
+* [x] **Week 0: Scratch** - [Notes](./week0-scratch/)
+* [x] **Week 1: C** - [Notes](./week1-C/)
+* [x] **Week 2: Arrays** - [Notes](./week2-Arrays/)
+* [x] **Week 3: Algorithms** - [Notes](./week3-algorithms/)
+* [ ] **🐧 Extra: [Linux Basics](./xtra-linuxbasics/)**
 * [ ] **Week 4: Memory**
 * [ ] **Week 5: Data Structures**
 * [ ] **Week 6: Python**
