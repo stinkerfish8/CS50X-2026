@@ -4,21 +4,23 @@ This repository contains my exercises and study notes for the **Harvard CS50x 20
 
 My goal isn't necessarily to become a full-time programmer, but to build a solid foundation in computer science and truly understand how the machine works. Gaining this low-level awareness helps me approach all my technical, logical, and creative projects with a deeper understanding of the tool I'm using.
 
+> Note: I am aiming for 100% completion by solving all mandatory, practice, and optional exercises.
+
 ## Useful Resources
-* [My Personal CheatSheet](cheatsheet.md)
+* [My Personal CheatSheets](./xtra-cheatsheets/)
 * [CS50x Official Course (edX)](https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home)
 * [Course Documentation](https://cs50.harvard.edu/x/2026/)
 * [Manual Pages](https://manual.cs50.io/)
 * [Scratch Editor](https://scratch.mit.edu/projects/editor/)
-* [Course Gallery](https://cs50.harvard.edu/x/2026/gallery/)
 
 ## Journey Progress
-* [x] **Week 0: Scratch** - [Notes & Practice](./week0-scratch/)
-* [x] **Week 1: C** - [Notes & Practice](./week1-C/)
-* [x] **Week 2: Arrays** - [Notes & Practice](./week2-Arrays/)
-* [x] **Week 3: Algorithms** - [Notes & Practice](./week3-algorithms/)
+* [x] **Week 0: Scratch** - [Notes](./week0-scratch/)
+* [x] **Week 1: C** - [Notes](./week1-C/)
+* [x] **Week 2: Arrays** - [Notes](./week2-Arrays/)
+* [x] **Week 3: Algorithms** - [Notes](./week3-algorithms/)
+* [ ] **🐧 Extra: [Linux Basics](./xtra-linuxbasics/)**
 * [ ] **Week 4: Memory**
-* [ ] **Week 5: Data Structures** 🎯 *[My Minimum Goal]*
+* [ ] **Week 5: Data Structures**
 * [ ] **Week 6: Python**
 * [ ] **Week 7: SQL**
 * [ ] **Week 8: HTML, CSS, JavaScript**
