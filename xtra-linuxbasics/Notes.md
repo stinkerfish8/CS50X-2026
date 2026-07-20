@@ -41,11 +41,9 @@
 
 ### What is a Command Line Interface (CLI)
 * A **CLI** (Command Line Interface) is a text-based human-machine interface that enables communication between the user and the computer.
-* The user types a command using the keyboard to request that the computer perform an operation.
+* **The user types a command using the keyboard to request that the computer perform an operation.**
 * The computer responds by displaying text representing the execution result, or by asking the user questions if the application requires further input.
 * The CLI is used both for fundamental interaction with the operating system and to launch and execute various software applications.
-
-*the user write a command to ask the computer to perform an operation
 
 ---
 
@@ -81,8 +79,8 @@ $$\text{command} \quad [\text{options}] \quad [\text{files\_or\_data}]$$
 
 ### The Command Prompt & The Shell
 * In WebLinux, the command prompt is represented by ` ~ $ ` followed by a blinking cursor, signaling that the system is ready for user input.
-* When the user presses **Enter**, the shell (command interpreter) processes the command and displays the output on the terminal.
-* Running `echo $0` displays the name of the active shell interpreter (e.g., `sh` for shell). The shell is the application that reads lines, interprets them, and requests the system to execute the corresponding operations.
+* When the user presses Enter, the **shell (command interpreter)** processes the command and displays the output on the terminal.
+* Running `echo $0` displays the name of the **active shell interpreter** (e.g., `sh` for shell). The shell is the application that reads lines, interprets them, and requests the system to execute the corresponding operations.
 
 ---
 
@@ -125,3 +123,27 @@ $$\text{command} \quad [\text{options}] \quad [\text{files\_or\_data}]$$
   * Running `man man` opens the manual for the manual page viewer itself.
   * To exit a manual page and return to the command prompt, the user must press the **Q** key.
   * *Note:* The `man` tool is disabled on WebLinux to save storage space. An alternative is searching the web for "man [command] Linux".
+
+# Linux Basic Commands Reference
+
+``` bash
+whoami
+whoami --help
+id
+logname
+echo hello
+echo $0
+hostname
+uname
+uname -a
+history  # Use UP ARROW to navigate history
+clear
+uptime
+cal
+cal --help
+cal -j
+date
+date +"%T"
+date +"%A %d %B %Y"
+man
+```
