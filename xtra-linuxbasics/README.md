@@ -1,6 +1,6 @@
 # Linux Basics: The Command Line Interface
 
-This section dedicated to my study of Linux basics and command-line fundamentals. 
+This section is dedicated to my study of Linux basics and command-line fundamentals. 
 
 EdX course by Dartmouh College: [Linux Basics: The Command Line Interface](https://www.edx.org/learn/linux/dartmouth-college-linux-basics-the-command-line-interface)
 
