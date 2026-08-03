@@ -52,6 +52,16 @@
 * The prompt displays useful information at the beginning of the line, such as the user account name, the computer name, the current working directory, or the date.
 * The prompt always ends with a specific character signaling that the system is ready to receive commands. The most common are the dollar sign (`$`), the pound/hash sign (`#`), or the greater-than sign (`>`).
 
+### Linux Prompt Symbols: `~` and `$`
+
+In the command-line prompt (e.g., `~$` ), these two symbols represent the **current directory** and the **user privilege level**:
+
+- **Tilde (`~`)**: Represents the current working directory. The tilde is the system shortcut for the user's **Home Directory**. If you navigate to a different directory, this symbol is replaced by the path of that current folder.
+    
+- **Dollar sign (`$`)**: Indicates that the terminal is ready for input and running under **Standard User** privileges.
+    
+    - _Note_: If you are operating as the system administrator (`root`), the `$` symbol is replaced by `#`.
+
 ---
 
 ### Unix & Linux Heritage
@@ -132,7 +142,7 @@ whoami --help
 id
 logname
 echo hello
-echo $0
+echo $0 # Ti dice quale shell stai usando, per esempio sh. è il software che interpreta i tuoi comandi in Linux
 hostname
 uname
 uname -a
@@ -147,3 +157,79 @@ date +"%T"
 date +"%A %d %B %Y"
 man
 ```
+
+> [!NOTE] Date Format Specifiers (`%`)
+> When using the `date` command in Linux, formatting strings start with a `+` sign. Inside the string, the `%` symbol acts as a **placeholder** (or format specifier) that gets replaced by a specific component of the current date or time:
+> 
+> * `%T` Time in 24-hour format (`HH:MM:SS`)
+> * `%A` Full weekday name (e.g., `Thursday`)
+> * `%d` Day of the month, zero-padded (`01`–`31`)
+> * `%B` Full month name (e.g., `September`)
+> * `%Y` Full 4-digit year (e.g., `2018`)
+> 
+> *Note: Format specifiers are case-sensitive
+
+> [!NOTE] Linux Command Options: `--help` vs `man` and Flag Syntax
+> 
+> ### Documentation Tools
+> * **`man <command>`** — Opens an interactive, full-page manual. Best for detailed study and offline reference. (Press `q` to exit).
+> * **`<command> --help`** — Prints a quick summary of options directly in the terminal and exits immediately.
+> 
+> ### Flag Syntax Rules
+> Options modify how a command behaves. The number of dashes indicates the option format:
+> 
+> * **Single Dash (`-`)** — Used for **single-letter** flags (e.g., `-h`, `-l`). Multiple short flags can often be combined (e.g., `-la`).
+> * **Double Dash (`--`)** — Used for **full-word** options (e.g., `--help`, `--version`). 
+> 
+> *Caution: Using a single dash with a full word like `-help` may cause the terminal to interpret it as a cluster of individual flags (`-h -e -l -p`), leading to errors.*
+
+> [!NOTE] Practical Exercise: Checklist
+> 
+> * [ ] **Test Basic Information:** Run `whoami`, `id`, `logname`, `hostname`, and `uname -a`.
+> * [ ] **Test Utility Commands:** Run `uptime`, `clear`, `echo hello`, and `echo $0`.
+> * [ ] **Test Formatted Output:** Run `cal`, `cal -j`, `date`, and test custom formats like `date +"%T"` and `date +"%A %d %B %Y"`.
+> * [ ] **Practice History & Navigation:** Run `history`, then use the Up ($\uparrow$) and Down ($\downarrow$) arrows to navigate past commands.
+> * [ ] **Test Help Flag:** Run `whoami --help` or `date --help` to check quick terminal documentation.
+> 
+> *Rule of thumb: Stick to these transparent commands and avoid running unfamiliar interactive commands until you know how to exit them!*
+
+> [!NOTE] Command Execution Modes
+> * **Standard / Non-Interactive Commands:** Execute a specific action, print the result directly into the terminal output stream, and immediately yield control back to the prompt (e.g., `whoami`, `date`, `echo`).
+> * **Interactive / Full-Screen Applications:** Take over the entire terminal interface to provide a navigable workspace, temporarily hiding the prompt until explicitly closed with an exit shortcut (e.g., `man` via the `q` key).
+
+
+# Interactive CLI Commands & How to Exit Them
+
+Some terminal commands launch interactive programs that do not immediately return to the shell prompt. You must explicitly exit these applications to regain control of the command line.
+
+---
+
+## 1. Common Interactive Commands
+
+| Command | Description | How to Exit |
+| :--- | :--- | :--- |
+| `top` | Displays real-time system processes and CPU/memory usage. | Press `q` or `Ctrl + C`. |
+| `htop` | Advanced, text-graphical process viewer. | Press `F10` (or `Fn + F10`), `q`, or `Ctrl + C`. |
+| `nano` | Basic, user-friendly text editor with a bottom menu. | Press `Ctrl + X`. |
+| `vim` | Advanced modal text editor. | Press `Esc`, then type `:q!` and press `Enter`. |
+
+---
+
+## 2. Key Concepts & Notation
+
+* **Caret Notation (`^`)**: Represents the `Ctrl` key in terminal documentation (e.g., `^C` = `Ctrl + C`).
+* **Universal Interrupt (`Ctrl + C`)**: The standard key combination to stop running programs, though it does not work in modal editors like `nano` or `vim`.
+* **Exiting Vim**:
+  * If stuck in **Insert Mode** (entered by pressing `i`), press `Esc` to return to Normal Mode.
+  * Type `:q!` and press `Enter` to quit without saving changes.
+  * Type `:wq` and press `Enter` to save changes and quit.
+
+# Bonus Commands (Games and visuals)
+
+| Command | Type | Description | Exit |
+| :--- | :--- | :--- | :--- |
+| `hello` | Text | Prints `"Hello world!"` | Auto |
+| `worm` / `firework` / `rain` | Visuals | ASCII animations | `Ctrl + C` / `q` |
+| `hanoi` | Puzzle | Tower of Hanoi game (move disks by size) | `q` |
+| `knight` | Game | Chess knight logic puzzle | `q` / `x` |
+
