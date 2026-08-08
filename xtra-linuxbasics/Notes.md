@@ -2,6 +2,8 @@
 
 ---
 ---
+
+# 🐧 Linux & Command Line Interface (CLI)
 # History of the Linux Operating System
 
 ### The Rise of Unix and the GNU Project
@@ -183,16 +185,6 @@ man
 > 
 > *Caution: Using a single dash with a full word like `-help` may cause the terminal to interpret it as a cluster of individual flags (`-h -e -l -p`), leading to errors.*
 
-> [!NOTE] Practical Exercise: Checklist
-> 
-> * [ ] **Test Basic Information:** Run `whoami`, `id`, `logname`, `hostname`, and `uname -a`.
-> * [ ] **Test Utility Commands:** Run `uptime`, `clear`, `echo hello`, and `echo $0`.
-> * [ ] **Test Formatted Output:** Run `cal`, `cal -j`, `date`, and test custom formats like `date +"%T"` and `date +"%A %d %B %Y"`.
-> * [ ] **Practice History & Navigation:** Run `history`, then use the Up ($\uparrow$) and Down ($\downarrow$) arrows to navigate past commands.
-> * [ ] **Test Help Flag:** Run `whoami --help` or `date --help` to check quick terminal documentation.
-> 
-> *Rule of thumb: Stick to these transparent commands and avoid running unfamiliar interactive commands until you know how to exit them!*
-
 > [!NOTE] Command Execution Modes
 > * **Standard / Non-Interactive Commands:** Execute a specific action, print the result directly into the terminal output stream, and immediately yield control back to the prompt (e.g., `whoami`, `date`, `echo`).
 > * **Interactive / Full-Screen Applications:** Take over the entire terminal interface to provide a navigable workspace, temporarily hiding the prompt until explicitly closed with an exit shortcut (e.g., `man` via the `q` key).
@@ -233,3 +225,29 @@ Some terminal commands launch interactive programs that do not immediately retur
 | `hanoi` | Puzzle | Tower of Hanoi game (move disks by size) | `q` |
 | `knight` | Game | Chess knight logic puzzle | `q` / `x` |
 
+### Linux File System Architecture
+
+#### File System Hierarchy & Standards
+
+- **File System Structure:** Organized as a single inverted tree hierarchy.
+    
+- **Root Directory (`/`):** The top-level directory of the entire Linux file system. All absolute paths originate from `/`.
+    
+- **FSSTD / FHS (1993):** The **Filesystem Hierarchy Standard** defines directory structure rules across GNU/Linux distributions to maintain system compatibility.
+    
+
+#### Core Linux Directories
+
+|**Directory**|**Full Name / Acronym**|**Description**|
+|---|---|---|
+|**`/`**|Root|The top-level root directory of the entire file system hierarchy.|
+|**`/bin`**|Binaries|Essential basic system commands required for all users (e.g., `ls`, `cp`).|
+|**`/sbin`**|System Binaries|Executable binaries reserved for system administration (**superuser / root**).|
+|**`/home`**|Home|Personal workspace directories for regular users (e.g., `/home/username/`).|
+|**`/root`**|Root's Home|Dedicated home directory for the **root** administrator account.|
+|**`/etc`**|Editable Text Configuration|System-wide configuration files in editable text format.|
+|**`/lib`**|Libraries|Shared software libraries required by system binaries in `/bin` and `/sbin`.|
+|**`/tmp`**|Temporary|Temporary storage. **Warning:** Typically wiped upon system reboot.|
+|**`/var`**|Variable Data|Dynamic operational files, including log files (`/var/log`), mail, and spool queues.|
+|**`/usr`**|Unix System Resources|Secondary hierarchy containing non-essential user utilities and software (`/usr/bin`, `/usr/lib`).|
+|**`/dev`**|Devices|Special device nodes representing physical hardware (e.g., storage, audio, memory). _Linux treats everything as a file_.|
