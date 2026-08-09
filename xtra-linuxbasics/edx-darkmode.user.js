@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         edX DarkMode
 // @namespace    https://github.com/stinkerfish8/CS50X-2026/tree/main/xtra-linuxbasics
-// @version      1.0.1
+// @version      1.0.2
 // @description  Forces dark mode and high-contrast text on edX while preserving quiz iframe readability
 // @author       Stinker_Fish (assisted by Gemini AI)
 // @icon         https://favicon.im/edx.org?larger=true
@@ -35,8 +35,8 @@
             border: 1px solid #333333 !important;
         }
 
-        /* 4. Pure white text and reset opacity on all elements */
-        section *, .raised-card *, div, p, span, h1, h2, h3, h4, h5, h6, li, td, th, label, small {
+        /* 4. Pure white text and reset opacity on standard layout elements (excluding play buttons/icons) */
+        section *:not(.btn-play):not([class*="fa-"]), .raised-card *, div:not(.video-wrapper):not(.tc-wrapper), p, span:not(.btn-play):not([class*="fa-"]), h1, h2, h3, h4, h5, h6, li, td, th, label, small {
             background-color: transparent !important;
             color: #ffffff !important;
             opacity: 1 !important;
@@ -62,6 +62,20 @@
 
         /* 8. High-contrast light blue links */
         a, a * {
+            color: #64b5f6 !important;
+        }
+
+        /* 9. High-contrast blue text for navigation buttons (Previous / Next) */
+        button:not(.btn-play), button:not(.btn-play) *, .btn:not(.btn-play), .btn:not(.btn-play) *, [role="button"], [role="button"] * {
+            color: #0075b4 !important;
+        }
+
+        /* 10. Fix video player play button background and icon color */
+        .video-wrapper, .tc-wrapper {
+            background-color: #121212 !important;
+        }
+        .btn-play, [class*="fa-youtube-play"] {
+            background-color: rgba(0, 0, 0, 0.7) !important;
             color: #64b5f6 !important;
         }
     `;
