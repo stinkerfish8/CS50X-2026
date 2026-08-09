@@ -322,3 +322,81 @@ Spaces split arguments into multiple files. To keep a space in a single filename
 
 Unclosed quotes or brackets trap the terminal in a `>` prompt. To exit, type the matching closing character and press Enter, or press Enter followed by `Ctrl + D`. Or just close it with `Ctrl + C`.
 
+# Reading Files: `cat` and `less` Cheat Sheet
+
+> **Note:** When creating a file directly from the terminal (e.g., using `cat > file.txt`), you can write the document text in the terminal immediately after running the command.
+
+### Creating and Viewing Files
+
+- `nano filename`: Opens the `nano` editor to write text line by line.
+    
+- `cat filename`: Prints the complete content of a file to the terminal.
+    
+- `echo "text"`: Prints text directly to the terminal.
+    
+- `echo "text" > file2.txt`: Redirects `echo` output to create or overwrite `file2.txt`.
+    
+- `cat file2.txt > file3.txt`: Redirects the output of `cat` into `file3.txt` (copies file content).
+    
+- `cat > anotherfile.txt`: Creates a file and lets you write text directly from the terminal; press `Ctrl + D` twice (or once on a clean new line) to save and exit.
+    
+
+### Managing Long Outputs & Piping (`|`)
+
+- `cat /etc/services`: Prints a large system file, which scrolls past the screen quickly.
+    
+- `cat /etc/services > listOfServices.txt`: Redirects the large output into a file, which can then be opened using `nano listOfServices.txt`.
+    
+- `cat /etc/services | more`: Pipes the output into `more` to view it page by page.
+    
+- `cat /etc/services | less`: Pipes the output into `less` for advanced navigation.
+    
+- `more filename` / `less filename`: Can also be run directly on a file without using `cat`.
+    
+- `ls /usr/bin`: Lists a directory with many files.
+    
+- `ls /usr/bin | less`: Pipes the directory listing into `less`.
+    
+
+# `less` Navigation & Search Shortcuts
+
+### Navigation
+
+- `Spacebar`: Scroll down page by page.
+    
+- `Up / Down Arrows` or `k / j`: Scroll line by line (`j` down, `k` up).
+    
+- `g` (lowercase): Jump to the **top** (beginning) of the document.
+    
+- `G` (uppercase): Jump to the **bottom** (end) of the document.
+    
+
+### Searching
+
+- Forward Search (`/`):
+    
+    - `/pattern`: Searches forward for a pattern.
+        
+    - `n`: Moves to the **next** match forward.
+        
+    - `N`: Moves to the **previous** match backward.
+        
+- Backward Search (`?`):
+    
+    - `?pattern`: Searches backward for a pattern.
+        
+    - `n`: Moves to the **next** match backward.
+        
+    - `N`: Moves to the **previous** match forward.
+        
+
+### Help and Options
+
+- `less --help`: Displays available options and help.
+    
+- `less -N`: Prefixes line numbers to each line.
+    
+- `less -M`: Displays detailed status line with line numbers and percentage.
+    
+- `ls /usr/bin | less -NM`: Combines line numbers (`-N`) and detailed status (`-M`).
+
