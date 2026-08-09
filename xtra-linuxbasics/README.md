@@ -18,4 +18,4 @@ EdX course by Dartmouh College: [Linux Basics: The Command Line Interface](https
 ## Tools
 *   **Platform:** edX (Dartmouth College)
 *   **Practice Environment:** [WebLinux (built-in course terminal)](https://remisharrock.github.io/sysbuild/#/VM)
-*   **Dark Mode Fix:** [edx-darkmode.user.js](./edx-darkmode.user.js) (Violentmonkey script to fix edX quiz readability)
+*   **Dark Mode Fix:** [edx-darkmode.user.js](./edx-darkmode.user.js?raw=true) (Userscript for Violentmonkey/Tampermonkey to fix edX dark mode and quiz iframe readability)
