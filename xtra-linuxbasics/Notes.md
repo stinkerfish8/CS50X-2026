@@ -251,3 +251,74 @@ Some terminal commands launch interactive programs that do not immediately retur
 |**`/var`**|Variable Data|Dynamic operational files, including log files (`/var/log`), mail, and spool queues.|
 |**`/usr`**|Unix System Resources|Secondary hierarchy containing non-essential user utilities and software (`/usr/bin`, `/usr/lib`).|
 |**`/dev`**|Devices|Special device nodes representing physical hardware (e.g., storage, audio, memory). _Linux treats everything as a file_.|
+# File System Navigation & Paths
+
+## Navigation Commands
+* **`pwd` (Print Working Directory):** Displays the absolute path of the current directory.
+* **`ls` (List):** Lists files and folders in the current directory.
+  * **`ls -a`:** Shows all files and folders, including hidden ones (names starting with `.`).
+  * **`ls -la`:** Displays detailed view (permissions, owner, size).
+    * **`d`** at the beginning of a row indicates a directory.
+    * **`-`** at the beginning of a row indicates a regular file.
+* **`cd` (Change Directory):** Navigates through the file system.
+  * **`cd`** (alone): Immediately returns to the user's home directory (`~`).
+  * **`cd /`:** Moves directly to the root directory.
+
+---
+
+## Navigation Symbols
+* **`.` (Single Dot):** Represents the current directory.
+* **`..` (Double Dot):** Represents the parent directory (one level up). Can be chained (e.g., `cd ../..` moves up two levels).
+* **`~` (Tilde):** Shortcut for the current user's home directory (e.g., `/home/user`).
+
+---
+
+## Absolute vs. Relative Paths
+
+* **Absolute Path:**
+  * Always starts with the root slash **`/`**.
+  * Specifies the exact location from the top of the file system hierarchy.
+  * Works consistently regardless of the current working directory.
+  * *Example:* `cd /home/user/sys`
+
+* **Relative Path:**
+  * Does **not** start with a leading slash **`/`**.
+  * Specifies a location relative to the current working directory.
+  * *Example:* `cd sys` (or `cd ./sys`) to go down, or `cd ..` to go up.
+
+# File Types & Command Location Utilities
+
+## Core Inspection Commands
+* **`file <filename>`:** Inspects a file to determine its exact file type or encoding (e.g., ASCII text, C source code, directory, executable binary, or symbolic link).
+* **`realpath <file_or_link>`:** Returns the absolute canonical path of a file, resolving any symbolic links to their original source location.
+* **`which <command>`:** Locates and displays the executable binary path of an installed system command (e.g., `which cat` returns `/bin/cat`).
+
+---
+
+## File Types & System Binaries
+* **Text / Source Files:** Plain text files encoded in formats such as ASCII (e.g., `.c` source files or plain text documents created via text editors like `nano`).
+* **Directory:** Identified by the `file` command as a directory container (e.g., `/bin`).
+* **Symbolic Link:** A shortcut or reference pointing to another file or location in the file system (e.g., `/bin/cat` linking to `/bin/busybox`).
+* **ELF Executables:** Compiled binary files executable by the CPU architecture (e.g., 32-bit ELF binaries).
+
+> **Symbolic Links & BusyBox**
+>
+> * **Symbolic Link:** A shortcut file that points directly to another file or directory location within the file system.
+> * **BusyBox Architecture:** In storage-constrained environments (like WebLinux), individual commands are not separate binaries.
+> * **Unified Binary:** A single binary (`/bin/busybox`) contains the functionality for dozens of standard tools.
+> * **Command Pointer Example:** Running `file /bin/cat` shows that `cat` is actually a symbolic link pointing to `/bin/busybox`, which then executes the `cat` operation.
+
+## Managing Files and Escaping Standard Output
+
+### Core Commands
+
+Use `touch filename` to create an empty file and `rm filename` to delete it.
+
+### Handling Spaces in Names
+
+Spaces split arguments into multiple files. To keep a space in a single filename, use an escape backslash (`touch my\ file`) or single quotes (`touch 'my file'`). Using underscores (`my_file`) is best practice.
+
+### Exiting the `>` Secondary Prompt
+
+Unclosed quotes or brackets trap the terminal in a `>` prompt. To exit, type the matching closing character and press Enter, or press Enter followed by `Ctrl + D`. Or just close it with `Ctrl + C`.
+
