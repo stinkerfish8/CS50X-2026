@@ -1,9 +1,3 @@
----
-
----
----
-
-# 🐧 Linux & Command Line Interface (CLI)
 # History of the Linux Operating System
 
 ### The Rise of Unix and the GNU Project
