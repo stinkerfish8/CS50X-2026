@@ -203,12 +203,17 @@ Some terminal commands launch interactive programs that do not immediately retur
 
 ## 2. Key Concepts & Notation
 
-* **Caret Notation (`^`)**: Represents the `Ctrl` key in terminal documentation (e.g., `^C` = `Ctrl + C`).
-* **Universal Interrupt (`Ctrl + C`)**: The standard key combination to stop running programs, though it does not work in modal editors like `nano` or `vim`.
-* **Exiting Vim**:
-  * If stuck in **Insert Mode** (entered by pressing `i`), press `Esc` to return to Normal Mode.
-  * Type `:q!` and press `Enter` to quit without saving changes.
-  * Type `:wq` and press `Enter` to save changes and quit.
+* **Caret Notation (^):** Represents the `Ctrl` key in terminal documentation (e.g., `^C` = `Ctrl + C`). It maps directly to ASCII control characters.
+* **ASCII Control Characters:** Key combinations that send control codes/signals to the terminal:
+  * **`^C` (`SIGINT`):** Universal Interrupt. Sends a termination signal to stop the currently running process (does not work in modal editors like `vim` or `nano`).
+  * **`^D` (`EOT` / `EOF`):** End-of-File. Signals end of input stream or exits the terminal session when the line is empty.
+  * **`^Z` (`SIGTSTP`):** Suspends the current process and places it in the background.
+  * **`^L` (`Form Feed`):** Clears the screen and redrafts the prompt (equivalent to `clear`).
+  * **`^U` / `^K`:** Erases text from the cursor to the beginning (`^U`) or end (`^K`) of the line.
+* **Exiting Vim:**
+  * Press `Esc` to return to Normal Mode.
+  * `:q!` + `Enter`: Quit without saving.
+  * `:wq` + `Enter`: Save changes and quit.
 
 # Bonus Commands (Games and visuals)
 
@@ -316,81 +321,54 @@ Spaces split arguments into multiple files. To keep a space in a single filename
 
 Unclosed quotes or brackets trap the terminal in a `>` prompt. To exit, type the matching closing character and press Enter, or press Enter followed by `Ctrl + D`. Or just close it with `Ctrl + C`.
 
-# Reading Files: `cat` and `less` Cheat Sheet
+# Reading Files: `cat` and `less` 
 
-> **Note:** When creating a file directly from the terminal (e.g., using `cat > file.txt`), you can write the document text in the terminal immediately after running the command.
+> **Note:** When using `cat > file.txt`, press `Enter` to move to a clean new line, then press `Ctrl + D` (`^D`) to save and exit.
 
 ### Creating and Viewing Files
 
-- `nano filename`: Opens the `nano` editor to write text line by line.
-    
-- `cat filename`: Prints the complete content of a file to the terminal.
-    
-- `echo "text"`: Prints text directly to the terminal.
-    
-- `echo "text" > file2.txt`: Redirects `echo` output to create or overwrite `file2.txt`.
-    
-- `cat file2.txt > file3.txt`: Redirects the output of `cat` into `file3.txt` (copies file content).
-    
-- `cat > anotherfile.txt`: Creates a file and lets you write text directly from the terminal; press `Ctrl + D` twice (or once on a clean new line) to save and exit.
-    
+* **`touch filename`:** Creates an empty file or updates the timestamp of an existing file without modifying its content.
+* **`cat filename`:** Prints the complete content of a file to the terminal.
+* **`nano filename`:** Opens the `nano` text editor.
+* **`echo "text"`:** Prints text directly to the terminal standard output.
+* **Redirection Operators:**
+  * **`>` (Overwrite):** Redirects output to a file, creating it or overwriting existing content (e.g., `echo "text" > file.txt` or `cat file1.txt > file2.txt`).
+  * **`>>` (Append):** Redirects output to a file, appending it to the end without overwriting existing content (e.g., `echo "text" >> file.txt`).
+  * **`cat > file.txt`:** Creates a file and allows direct text input from the terminal until `^D` is sent.
 
 ### Managing Long Outputs & Piping (`|`)
 
-- `cat /etc/services`: Prints a large system file, which scrolls past the screen quickly.
-    
-- `cat /etc/services > listOfServices.txt`: Redirects the large output into a file, which can then be opened using `nano listOfServices.txt`.
-    
-- `cat /etc/services | more`: Pipes the output into `more` to view it page by page.
-    
-- `cat /etc/services | less`: Pipes the output into `less` for advanced navigation.
-    
-- `more filename` / `less filename`: Can also be run directly on a file without using `cat`.
-    
-- `ls /usr/bin`: Lists a directory with many files.
-    
-- `ls /usr/bin | less`: Pipes the directory listing into `less`.
-    
+* **`cat /etc/services`:** Prints a large file directly to stdout (scrolls past quickly).
+* **`cat /etc/services > listOfServices.txt`:** Saves large output to a file for editing.
+* **`cat /etc/services | more`:** Pipes output to `more` for simple page-by-page viewing.
+* **`cat /etc/services | less`:** Pipes output to `less` for interactive navigation.
+* **`less filename`:** Opens a file directly in `less` without piping through `cat`.
+* **`ls /usr/bin | less`:** Pipes long directory listings into `less`.
 
-# `less` Navigation & Search Shortcuts
+---
+
+## `less` Navigation & Search
 
 ### Navigation
-
-- `Spacebar`: Scroll down page by page.
-    
-- `Up / Down Arrows` or `k / j`: Scroll line by line (`j` down, `k` up).
-    
-- `g` (lowercase): Jump to the **top** (beginning) of the document.
-    
-- `G` (uppercase): Jump to the **bottom** (end) of the document.
-    
+* **`j` / `Down Arrow`:** Scroll down line by line.
+* **`k` / `Up Arrow`:** Scroll up line by line.
+* **`Spacebar` / `f`:** Scroll down page by page.
+* **`b`:** Scroll up page by page.
+* **`g`:** Jump to the **top** (beginning) of the document.
+* **`G`:** Jump to the **bottom** (end) of the document.
+* **`q`:** Quit `less`.
 
 ### Searching
+* **Forward Search (`/`):** Type `/pattern` + `Enter`.
+  * **`n`:** Move to the **next** match (forward).
+  * **`N`:** Move to the **previous** match (backward).
+* **Backward Search (`?`):** Type `?pattern` + `Enter`.
+  * **`n`:** Move to the **next** match (backward).
+  * **`N`:** Move to the **previous** match (forward).
 
-- Forward Search (`/`):
-    
-    - `/pattern`: Searches forward for a pattern.
-        
-    - `n`: Moves to the **next** match forward.
-        
-    - `N`: Moves to the **previous** match backward.
-        
-- Backward Search (`?`):
-    
-    - `?pattern`: Searches backward for a pattern.
-        
-    - `n`: Moves to the **next** match backward.
-        
-    - `N`: Moves to the **previous** match forward.
-        
-
-### Help and Options
-
-- `less --help`: Displays available options and help.
-    
-- `less -N`: Prefixes line numbers to each line.
-    
-- `less -M`: Displays detailed status line with line numbers and percentage.
-    
-- `ls /usr/bin | less -NM`: Combines line numbers (`-N`) and detailed status (`-M`).
+### Useful Flags
+* **`less -N`:** Displays line numbers.
+* **`less -M`:** Displays a detailed status line (line numbers and progress percentage).
+* **`ls /usr/bin | less -NM`:** Combines line numbers (`-N`) and detailed status (`-M`).
+* **`less --help`:** Opens full help and command reference.
 
