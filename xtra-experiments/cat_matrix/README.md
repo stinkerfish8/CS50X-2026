@@ -6,6 +6,10 @@ An extra terminal-based project featuring a custom C program.
 * Renders an ASCII cat shape filled with a Matrix-style digital rain effect using ANSI escape codes.
 * Features a dynamic typewriter-style footer that gradually reveals mc.catcraft.it.
 
+## How to Run
+* Compile the program: gcc cat_matrix.c -o cat_matrix
+* Run the executable: ./cat_matrix
+
 ## How It Was Built
 Built with the help of Gemini, piecing things together step by step using code snippets and ideas found around. It handles terminal rendering, buffer management, and animation frames using standard C libraries.
 
