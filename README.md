@@ -15,8 +15,8 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 
 ## Journey Progress
 * [x] **Week 0: Scratch** - [Notes](./week0-scratch/)
-* [x] **Week 1: C** - [Notes](./week1-C/)
-* [x] **Week 2: Arrays** - [Notes](./week2-Arrays/)
+* [x] **Week 1: C** - [Notes](./week1-c/)
+* [x] **Week 2: Arrays** - [Notes](./week2-arrays/)
 * [x] **Week 3: Algorithms** - [Notes](./week3-algorithms/)
 * [x] **Extra: [Linux Basics](./xtra-linuxbasics/)**
 * [ ] **Week 4: Memory**
@@ -30,8 +30,8 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 ## Custom Projects
 Here are some extra programs I developed from scratch to experiment with the concepts learned during the course:
 * **[Home Run Hero](./week0-scratch/)** (Week 0) - A game developed in Scratch to practice fundamental programming logic.
-* **[Triangle Properties](./week2-Arrays/triangle)** (Week 2) - A script to calculate geometric properties of triangles.
-* **[Dish Calories Calculator](./week2-Arrays/calories)** (Week 2) - A terminal tool that parses ingredients, weights, and values to calculate total meal calories.
+* **[Triangle Properties](./week2-arrays/triangle)** (Week 2) - A script to calculate geometric properties of triangles.
+* **[Dish Calories Calculator](./week2-arrays/calories)** (Week 2) - A terminal tool that parses ingredients, weights, and values to calculate total meal calories.
 
 ---
 > **Disclaimer:** This repository is for personal tracking and study notes. In accordance with the CS50x academic honesty guidelines, no solutions to the course problem sets are hosted here. If you are a student, I encourage you to focus on the learning process and create your own original work.
