@@ -1,374 +1,642 @@
-# History of the Linux Operating System
+# 1. History of the Linux Operating System
 
-### The Rise of Unix and the GNU Project
-* By the early 1980s, the Unix operating system was widely adopted by universities, research centers, startups, and companies.
-* In 1983, Unix inventors Dennis Ritchie and Ken Thompson received the Turing Award.
-* In the same year, Richard Stallman of MIT launched the GNU Project, a collaborative project to develop free and open software compatible with Unix.
-* Unlike Unix, which was owned by Bell Labs and required paid licenses, the GNU Project was free for anyone to use and modify.
-* In 1989, Stallman created the GNU General Public License (GPL) to legally preserve the freedom to use, study, modify, and distribute software.
-* By 1990, the GNU Project possessed an extensive collection of software, including text editors, a graphical user interface, libraries, and the GNU C Compiler (GCC). However, users still had to run this free software on top of a proprietary, paid Unix operating system.
+### The Rise of Unix & The GNU Project
 
----
+In the early 1980s, Unix became widely adopted across universities, research centers, and enterprise environments. In 1983, Unix creators Dennis Ritchie and Ken Thompson received the Turing Award. That same year, Richard Stallman launched the GNU Project at MIT to create a free, Unix-compatible operating system. Unlike proprietary Unix, GNU software was free to use and modify. In 1989, Stallman published the GNU General Public License (GPL) to legally safeguard open-source software. By 1990, the GNU Project possessed compilers (GCC), text editors, and system libraries, but lacked an open-source operating system kernel.
 
-### The Birth of the Linux Kernel
-* In 1991, Linus Torvalds, a 21-year-old Finnish computer science student at the University of Helsinki, became frustrated by proprietary operating system licenses.
-* On August 25, 1991, he announced to the community that he was working on a free operating system as a hobby.
-* This project became the Linux kernel. It was written specifically to run on Torvalds' PC (utilizing an 80386 processor) and was compiled using the GNU C Compiler (GCC), which remains the primary compiler for Linux today.
-* The community quickly integrated the free GNU software tools with the free Linux kernel.
+### The Birth of the Linux Kernel & Ecosystem Evolution
 
----
+In 1991, 21-year-old Finnish student Linus Torvalds created a free operating system kernel for his Intel 80386 PC. On August 25, 1991, he publicly announced the project. Compiled using GNU GCC, the Linux kernel was combined with GNU tools by the global developer community. 
 
-### Distribution and Commercial Adoption
-* In 1992, the first Linux distributions were released, combining the free Linux operating system kernel with the GNU Project's software collection (editors, libraries, compilers).
-* By 1993, more than 100 global developers were actively modifying and improving Linux. This year also marked the launch of highly popular distributions, such as Debian.
-* By the end of the 1990s, major hardware manufacturers like Dell, IBM, and HP officially announced compatibility of their hardware with Linux.
-* During the 2000s, Linux was increasingly deployed as the primary operating system running web servers.
+| Era | Key Milestones |
+|---|---|
+| **1992** | First Linux distributions released, pairing the Linux kernel with GNU utilities. |
+| **1993** | 100+ global developers joined the project; major distributions like Debian launched. |
+| **Late 1990s** | Enterprise hardware vendors (IBM, Dell, HP) officially adopted Linux compatibility. |
+| **2000s** | Linux became the primary operating system architecture for global web servers. |
+| **2010s–Present** | Dominates 70% of web servers, 90% of smartphones (Android/iOS Unix base), and 99% of supercomputers. Embedded in consoles (PlayStation), routers, and smart devices. |
 
 ---
 
-### Modern Dominance (2010s and Beyond)
-* In the 2010s, Linux and Unix-based operating systems became the most widely used systems globally:
-  * **Internet Servers:** Powered around 70% of the market share.
-  * **Smartphones:** Powered around 90% of the market share, with Android being based on Linux and iOS being based on Unix.
-  * **Supercomputers:** Dominated around 99% of the market share, serving scientific calculations and the film/special effects industries.
-* Today, Linux and Unix derivatives are embedded across everyday technologies, including PlayStation game consoles, internet boxes, Wi-Fi routers, and smart connected devices.
----
-# CLI & Command Line Basics
+# 2. Command Line Interface Fundamentals
 
-### What is a Command Line Interface (CLI)
-* A **CLI** (Command Line Interface) is a text-based human-machine interface that enables communication between the user and the computer.
-* **The user types a command using the keyboard to request that the computer perform an operation.**
-* The computer responds by displaying text representing the execution result, or by asking the user questions if the application requires further input.
-* The CLI is used both for fundamental interaction with the operating system and to launch and execute various software applications.
+### Command Structure & Execution Rules
 
----
+A Command Line Interface (CLI) is a text-based interface used to interact with the operating system. Commands follow a standard structural syntax:
 
-### The Command Prompt
-* When the command line is ready to receive input, it displays the **command prompt**.
-* The prompt displays useful information at the beginning of the line, such as the user account name, the computer name, the current working directory, or the date.
-* The prompt always ends with a specific character signaling that the system is ready to receive commands. The most common are the dollar sign (`$`), the pound/hash sign (`#`), or the greater-than sign (`>`).
+`command [options] [files_or_data]`
 
-### Linux Prompt Symbols: `~` and `$`
+* **Command:** Executable program or system tool placed at the start of the line.
+* **Options:** Modifies execution behavior. Single-letter flags use a single dash (e.g., `-j`), while full-word options use double dashes (e.g., `--help`). Short flags can be combined (e.g., `-la`).
+* **Files/Data:** Input target acted upon by the command.
 
-In the command-line prompt (e.g., `~$` ), these two symbols represent the **current directory** and the **user privilege level**:
+### Shell Prompt Symbols
 
-- **Tilde (`~`)**: Represents the current working directory. The tilde is the system shortcut for the user's **Home Directory**. If you navigate to a different directory, this symbol is replaced by the path of that current folder.
-    
-- **Dollar sign (`$`)**: Indicates that the terminal is ready for input and running under **Standard User** privileges.
-    
-    - _Note_: If you are operating as the system administrator (`root`), the `$` symbol is replaced by `#`.
+> [!NOTE] Definition: Shell
+> The **shell** is the command language interpreter program. It sits between the user and the operating system kernel: it reads the text input from the terminal, expands syntax (like wildcards `*` and `?`), requests the kernel to execute the commands, and displays the result back to the screen. Common examples include `sh` and `bash`.
+
+| Symbol | Name | Description |
+|---|---|---|
+| `~` | Tilde | Represents the current user's **Home Directory** shortcut. |
+| `$` | Dollar Sign | Indicates a **Standard User** privilege level. |
+| `#` | Hash / Pound | Indicates a **Superuser (root)** administrator privilege level. |
+
+### Command Execution Modes
+
+| Mode | Characteristics | Examples |
+|---|---|---|
+| **Standard (Non-Interactive)** | Executes an action, outputs results to stdout, and immediately returns control to the prompt. | `whoami`, `date`, `echo` |
+| **Interactive (Full-Screen)** | Occupies the entire terminal screen to provide a navigable workspace until explicitly closed. | `nano`, `vim`, `top`, `less` |
 
 ---
 
-### Unix & Linux Heritage
-* A fundamental feature of the Unix operating system, inherited by Linux, is the presence of more than 100 software applications since its early beginnings.
-* These programs perform very simple, targeted tasks, and they are all designed to be used directly from the command line.
+# 3. System Information & Basic Utilities
+
+### System Identity & Diagnostics
+
+| Command | Primary Function | Notes / Useful Flags |
+|---|---|---|
+| `whoami` | Displays current effective username. | Default WebLinux user: `user`. |
+| `id` | Prints User ID (UID), Group ID (GID), and group memberships. | UID 1000 represents the standard user. |
+| `logname` | Prints user login name. | Functions similarly to `whoami`. |
+| `hostname` | Displays system network/DNS name. | Default WebLinux host: `openrisk`. |
+| `uname` | Prints operating system name. | `-a` prints full kernel, architecture, and build data. |
+| `uptime` | Displays system running time, current time, and CPU load. | Useful for system stability monitoring. |
+| `echo $0` | Identifies active shell interpreter. | Returns `sh` or `bash`. |
+
+### Terminal Control & Formatting Utilities
+
+| Command | Description | Syntax Examples |
+|---|---|---|
+| `clear` | Clears terminal screen buffer. | `clear` |
+| `history` | Lists previously executed commands. | Use Up/Down arrows to navigate history. |
+| `echo` | Prints input text to terminal output. | `echo hello` |
+| `cal` | Displays text calendar. | `cal -j` (displays Julian day count). |
+| `date` | Displays or formats system date/time. | Uses `+` prefix with format specifiers. |
+
+### Date Format Specifiers (`%`)
+
+| Specifier | Component Output | Example Output |
+|---|---|---|
+| `%T` | Time in 24-hour format (`HH:MM:SS`) | `14:30:05` |
+| `%A` | Full weekday name | `Thursday` |
+| `%d` | Zero-padded day of the month (`01`–`31`) | `09` |
+| `%B` | Full month name | `September` |
+| `%Y` | 4-digit year | `2026` |
 
 ---
 
-### Anatomy of a Command
-Elementary commands follow a standard structure where options and files or data are optional:
+# 4. Interactive Applications & Control Shortcuts
 
-$$\text{command} \quad [\text{options}] \quad [\text{files\_or\_data}]$$
+### Interactive Text Editors & Tools
 
-* **Command:** Positioned at the very beginning of the line, this is almost always the name of the software application to execute. It can be an operating system command or a program written by the user, often in the C programming language.
-* **Option:** Modifies the behavior and execution of the command. It immediately follows the command name and is separated by spaces. The specific effect of an option depends entirely on the command being used.
-* **Files or Data:** Represent the inputs or data upon which the program will operate.
+| Application | Primary Use | Exit Method |
+|---|---|---|
+| `man` | System manual pages viewer (disabled on WebLinux). | Press `q` |
+| `top` | Real-time system process and resource monitor. | Press `q` or `Ctrl + C` |
+| `htop` | Text-graphical interactive process manager. | Press `F10` (or `Fn + F10`), `q`, or `Ctrl + C` |
+| `nano` | Basic text editor with on-screen menu. | Press `Ctrl + X` |
+| `vim` | Advanced modal text editor. | Press `Esc`, type `:q!` (quit) or `:wq` (save & quit) |
 
----
+### Terminal Control Signals (Caret Notation `^`)
 
-### Practical Example: The `cal` Command
-* Typing the `cal` command and pressing Enter executes the application that displays the calendar for the current month in text mode.
-* Adding the `-j` option (typing `cal -j`) modifies the output to display the calendar in Julian days, representing the number of days elapsed since January 1st.
----
-# Basic CLI Commands & Navigation
+| Shortcut | Signal Code | Action Performed |
+|---|---|---|
+| `Ctrl + C` (`^C`) | `SIGINT` | Interrupts and terminates the currently running process. |
+| `Ctrl + D` (`^D`) | `EOT` / `EOF` | End-of-File signal; exits session or closes input streams. |
+| `Ctrl + Z` (`^Z`) | `SIGTSTP` | Suspends active process and places it into the background. |
+| `Ctrl + L` (`^L`) | Form Feed | Redrafts prompt and clears visible screen (matches `clear`). |
+| `Ctrl + U` | Line Clear | Erases text from cursor to beginning of the line. |
+| `Ctrl + K` | Line Clear | Erases text from cursor to end of the line. |
 
-### The Command Prompt & The Shell
-* In WebLinux, the command prompt is represented by ` ~ $ ` followed by a blinking cursor, signaling that the system is ready for user input.
-* When the user presses Enter, the **shell (command interpreter)** processes the command and displays the output on the terminal.
-* Running `echo $0` displays the name of the **active shell interpreter** (e.g., `sh` for shell). The shell is the application that reads lines, interprets them, and requests the system to execute the corresponding operations.
+### Visuals & Terminal Games
 
----
-
-### User Identification & Verification
-* `whoami`: Prints the username associated with the current effective user ID (on the WebLinux environment, the default user is `user`).
-* `id`: Displays specific identification details, including the User ID (UID), Group ID (GID), and associated groups (e.g., UID 1000 for the default user).
-* `logname`: Outputs the login name of the current user, functioning similarly to `whoami`.
-* On standard Linux systems, users must authenticate with a username and password. Linux is natively multi-user, meaning different users can coexist with unique passwords and isolated home directories.
-
----
-
-### System Information & Status
-* `hostname`: Retrieves or sets the system's network name or DNS domain name (defaults to `openrisk` on WebLinux).
-* `uname`: Prints basic system information (e.g., "Linux").
-  * **Option `-a`:** Running `uname -a` prints all system information, including the system name, hostname, kernel release version, build date, and architecture.
-* `uptime`: Displays how long the system has been running, the current time, and CPU load averages.
+| Utility | Type | Description | Exit Shortcut |
+|---|---|---|---|
+| `hello` | Text | Prints basic greeting string. | Automatic |
+| `worm` / `firework` / `rain` | Visuals | ASCII graphic animations. | `Ctrl + C` or `q` |
+| `hanoi` | Game | Tower of Hanoi disk logic puzzle. | `q` |
+| `knight` | Game | Chess knight movement puzzle. | `q` or `x` |
 
 ---
 
-### Terminal Navigation & History
-* `history`: Outputs a list of previously executed commands in the current session.
-* **Navigation Arrows:** Users can scroll backward through command history using the **Up Arrow** and forward using the **Down Arrow**.
-* `clear`: Clears the screen of all previous commands and outputs, returning the prompt to the top of the terminal.
+# 5. Linux File System Architecture & Navigation
+
+### Core File System Structure
+
+The Linux file system is organized as a single inverted tree hierarchy starting from the root directory (`/`). The Filesystem Hierarchy Standard (FHS) governs directory organization across distributions.
+
+| Directory | Name / Acronym | Functional Purpose |
+|---|---|---|
+| `/` | Root | Top-level parent directory of the entire file system. |
+| `/bin` | Binaries | Essential user commands required across all access modes (`ls`, `cp`). |
+| `/sbin` | System Binaries | Administrative executables reserved for root/superuser. |
+| `/home` | Home | User personal workspaces (e.g., `/home/username/`). |
+| `/root` | Root Home | Isolated home workspace for system administrator account. |
+| `/etc` | Configuration | System-wide editable text configuration files. |
+| `/lib` | Libraries | Shared code libraries required by `/bin` and `/sbin` executables. |
+| `/tmp` | Temporary | Temporary storage area wiped automatically upon system reboot. |
+| `/var` | Variable Data | Dynamic operational files (logs in `/var/log`, mail, spool queues). |
+| `/usr` | Unix Resources | Secondary hierarchy for non-essential software applications (`/usr/bin`). |
+| `/dev` | Devices | Virtual device nodes representing hardware (*Everything is a file*). |
+
+### Navigation Utilities & Syntax
+
+| Command / Symbol | Operation | Description / Usage |
+|---|---|---|
+| `pwd` | Print Working Directory | Outputs current absolute path location. |
+| `ls` | List Directory | Lists files/folders (`-a` shows hidden files starting with `.`, `-la` shows long detail). |
+| `cd` | Change Directory | Navigates path locations (`cd` alone jumps to `~`, `cd /` moves to root). |
+| `.` | Current Directory | Reference pointer to current location. |
+| `..` | Parent Directory | Reference pointer to directory one level up (chainable: `cd ../..`). |
+| `~` | Home Directory | Shortcut path to active user workspace. |
+
+### Absolute vs. Relative Paths
+
+* **Absolute Path:** Begins with a leading root slash `/`. Defines exact file location from top of system hierarchy regardless of current location (e.g., `cd /home/user/sys`).
+* **Relative Path:** Does **not** begin with a leading slash `/`. Evaluates target path relative to current working directory location (e.g., `cd sys` or `cd ..`).
+
+**Examples:**
+
+* `pwd` (Prints current absolute directory path)
+* `ls -la /var/log` (Displays detailed list of log directory including hidden files)
+* `cd ../etc` (Navigates to the /etc directory relative to current location)
 
 ---
 
-### Basic Output & Utility Commands
-* `echo`: Prints the text argument passed to it directly onto the screen (e.g., `echo hello` outputs `hello`).
-* `cal`: Displays a text-based calendar of the current month.
-  * **Option `-j`:** Running `cal -j` displays the calendar using Julian days (counting sequentially from January 1st).
-* `date`: Prints the current system date and time. It supports custom formatters to display specific segments of time:
-  * `date +"%T"`: Formats and displays only the current time.
-  * `date +"%A %d %B %Y"`: Formats and displays the full day name, day number, month name, and year (e.g., "Thursday 13 September 2018").
+# 6. File Types & Inspection Utilities
+
+### System Inspection Tools
+
+| Tool | Primary Purpose | Usage Example |
+|---|---|---|
+| `file <name>` | Inspects file header to determine file format or encoding. | Identifies ASCII text, directories, ELF binaries, or symlinks. |
+| `realpath <target>` | Resolves symbolic links to display canonical absolute path. | Traces link pointer directly to source target location. |
+| `which <command>` | Displays executable binary path assigned to system commands. | `which cat` returns `/bin/cat`. |
+
+### File Types & BusyBox Architecture
+
+* **Text / Source Files:** Plain text files encoded in formats such as ASCII.
+* **Directory:** Structural file system folder container.
+* **Symbolic Link:** Shortcut reference pointing directly to another file or path location.
+* **ELF Executable:** Compiled architecture-specific binary executable.
+* **BusyBox Unified Architecture:** In storage-constrained environments (like WebLinux), system utilities are consolidated into a single binary (`/bin/busybox`). Utilities like `/bin/cat` exist as symbolic links pointing directly to `/bin/busybox`.
+
+**Examples:**
+
+* `file /bin/cat` (Inspects target to verify if it is an ELF executable or symbolic link)
+* `which nano` (Displays executable location for nano text editor)
+* `realpath /bin/cat` (Resolves symbolic link to reveal origin binary target)
 
 ---
 
-### Getting Help & System Documentation
-* **`--help` Option:** Appending `--help` after almost any command (e.g., `whoami --help`) displays basic usage guidelines, syntax, and available options directly in the terminal.
-* **`man` Command:** On standard Linux installations, typing `man` followed by a command name (e.g., `man cal`) opens the complete reference manual for that utility. 
-  * Running `man man` opens the manual for the manual page viewer itself.
-  * To exit a manual page and return to the command prompt, the user must press the **Q** key.
-  * *Note:* The `man` tool is disabled on WebLinux to save storage space. An alternative is searching the web for "man [command] Linux".
+# 7. File Reading, Writing & Redirection
 
-# Linux Basic Commands Reference
+### File Creation & Escaping Rules
 
-``` bash
-whoami
-whoami --help
-id
-logname
-echo hello
-echo $0 # Ti dice quale shell stai usando, per esempio sh. è il software che interpreta i tuoi comandi in Linux
-hostname
-uname
-uname -a
-history  # Use UP ARROW to navigate history
-clear
-uptime
-cal
-cal --help
-cal -j
-date
-date +"%T"
-date +"%A %d %B %Y"
-man
+Empty files are created or timestamp-updated using `touch <filename>`. Filenames containing spaces must handle argument splitting using escape backslashes (`touch my\ file.txt`) or single quotes (`touch 'my file.txt'`). Using underscores (`my_file.txt`) is standard best practice. Unclosed quotes trap the shell in a secondary prompt (`>`); exit by typing the matching closing quote, pressing `Ctrl + D`, or using `Ctrl + C`.
+
+### Output Redirection & Piping
+
+| Operator / Command | Function | Description |
+|---|---|---|
+| `>` | Overwrite Redirection | Redirects output to file, creating it or overwriting existing content. |
+| `>>` | Append Redirection | Redirects output to file, appending content to end of file. |
+| `cat > file.txt` | Direct Terminal Input | Accepts terminal text input into file until `Ctrl + D` (`^D`) is sent. |
+| `\|` | Pipeline | Passes stdout of left command as stdin to right command. |
+
+### Interactive Paging (`less`)
+
+| Function | Shortcuts / Flags | Description |
+|---|---|---|
+| **Navigation** | `j` / `k` (or Down/Up), `Space` / `b`, `g` / `G` | Move by line, move by page, jump to top / bottom. |
+| **Search** | `/pattern` (forward), `?pattern` (backward) | Search text (`n` moves to next match, `N` to previous). |
+| **Flags** | `-N` (line numbers), `-M` (status & percentage) | Toggles view status parameters. Exit with `q`. |
+
+**Examples:**
+
+* `touch 'new file.txt'` (Creates a file containing spaces using single quotes)
+* `echo "data" >> notes.txt` (Appends text to file end without overwriting existing data)
+* `less -NM /etc/services` (Opens services file displaying line numbers and progress percentage)
+
+---
+
+# 8. Directory & File Management
+
+### Command Operations Table
+
+| Command | Action | Key Options | Usage Notes |
+|---|---|---|---|
+| `mkdir` | Create Directory | `-p` | `-p` creates nested parent directories recursively. |
+| `rm` | Remove File/Directory | `-r`, `-i` | `-r` enables recursive directory deletion; `-i` prompts for confirmation before removal. |
+| `mv` | Move / Rename | `-i`, `-n` | Renames files within path or moves locations. `-i` prompts before overwriting; `-n` prevents overwrites. |
+| `cp` | Copy File/Directory | `-r`, `-i` | `-r` recursively copies directory contents; `-i` prompts before file overwrites. |
+
+**Examples:**
+
+* `mkdir -p projects/2026/notes` (Creates nested directory structure recursively in a single command)
+* `rm -ri test_folder/` (Recursively deletes folder while asking confirmation for each item)
+* `mv -i file1.txt file2.txt` (Renames file1.txt to file2.txt, prompting if file2.txt already exists)
+* `cp -r -i folder1/ folder2/` (Recursively copies folder1 into folder2 with interactive overwrite prompt)
+
+---
+
+# 9. File Searching Methods
+
+### Search Mechanisms Overview
+
+* **`locate`:** Queries a pre-built indexed database for fast file searches. Refreshed manually via `updatedb`. Excluded on lightweight environments like WebLinux.
+* **`echo` Expansion:** Uses shell globbing wildcard stars (`*`) to match variable characters or question marks (`?`) to match single-character placeholders.
+* **`find` System Search:** Recursively traverses directory paths directly. Double quotes around search patterns prevent premature shell expansion.
+
+### `find` Options & Redirection
+
+| Search Parameters | Purpose | Example Syntax |
+|---|---|---|
+| `-name` | Exact case-sensitive filename search. | `find /home -name "notes.txt"` |
+| `-iname` | Case-insensitive filename search. | `find . -iname "readme.md"` |
+| `-ipath` | Case-insensitive path search. | `find /usr -ipath "*src/mail*"` |
+| `2> /dev/null` | Discards permission denied error streams. | `find / -name "config.sys" 2> /dev/null` |
+**Standard Streams** 
+
+In Linux, every process automatically opens 3 numbered communication channels:
+
+ **`0` = `stdin`** (Standard Input): data input (by default, the keyboard).
+ **`1` = `stdout`** (Standard Output): standard data output (by default, the terminal).
+ **`2` = `stderr`** (Standard Error): output reserved for error messages.
+
+The `2>` symbol redirects only stream number 2 (errors).
+
+**Examples:**
+
+* `echo *.txt` (Lists all files with .txt extension in the current directory using shell expansion)
+* `find / -name "config.sys" 2> /dev/null` (Searches entire file system for config.sys while discarding access permission errors)
+* `find . -iname "readme.md"` (Searches current directory for readme.md ignoring case differences)
+* `find /usr -ipath "*src/mail*" | less` (Searches path matching target pattern case-insensitively and pipes results to less)
+
+---
+
+# 10. C Program Compilation with GCC
+
+In C, source code written in human-readable files must be converted into machine language before execution. This translation is handled by a **compiler**.
+
+### Compilation vs. Interpretation
+
+| Feature | Compiler (e.g., `gcc`) | Interpreter (e.g., `python`, `bash`) |
+|---|---|---|
+| **Translation** | Whole program translated all at once in advance | Line by line during execution |
+| **Execution Speed** | Very fast (pre-translated binary) | Slower (overhead from live translation) |
+| **Startup Time** | Requires initial compilation step | Starts executing immediately |
+| **Debugging** | Catches syntax errors before running | Finds errors only when reaching that line |
+| **Primary Use Cases** | System programming, high-performance apps, C/C++ | Scripting, rapid prototyping, Web (JavaScript) |
+
+* **Interpreter** (`Inter` = *between*): Sits continuously between the code and the computer, translating each line as it runs.
+* **Compiler** (`Compile` = *to pile together*): Piles together the entire program and converts it into a single executable file.
+
+### What is GCC?
+
+**GCC** (**GNU Compiler Collection**) is the default compiler toolset for Linux and Unix-like operating systems. Its primary role is to convert human-readable source code (such as C files) into binary machine code that the processor can execute.
+
+* **Origin:** Originally created in 1987 by Richard Stallman as the *GNU C Compiler*, it later expanded to support multiple programming languages (C, C++, Fortran, Go).
+* **Compilation Pipeline:** Automatically handles all four main build stages: **Preprocessing** -> **Compiling** (to Assembly) -> **Assembling** (to Machine Code) -> **Linking**.
+* **Role in C Development:** It is the primary tool used in Linux terminals to turn `.c` source files into executable binaries like `a.out` or custom-named programs.
+
+### Basic GCC Compilation Commands
+
+| Command | Description |
+|---|---|
+| `gcc program.c` | Compiles `program.c` and outputs the default executable named `a.out`. |
+| `./a.out` | Executes the compiled output file in the current directory. |
+| `gcc program.c -o program` | Compiles `program.c` and names the output executable `program`. |
+| `./program` | Executes the custom-named compiled program. |
+
+---
+
+# 11. Compiling and Executing C Programs on WebLinux
+
+WebLinux automates compilation and execution through two editable command lines at the bottom of the Code Editor.
+
+### Build and Run Workflow
+
+1. **Build Command (Compilation):**
+   `gcc program.c -o program`
+   * `gcc`: Invokes the GNU C Compiler.
+   * `program.c`: The input C source file.
+   * `-o program`: Specifies the output binary name (`-o` stands for output).
+
+2. **Execution Command:**
+   `./program`
+   * `./`: Refers to the current working directory.
+   * `program`: The name of the binary file to execute.
+
+* **WebLinux "Run It" Button:** Automatically saves the open file, executes the Build Command to compile the `.c` file into a binary, clears the screen, and runs the Execution Command.
+
+### GCC Compiler Flags
+
+Compiler flags give precise control over how `gcc` analyzes and translates C code.
+
+| Flag | Purpose |
+|---|---|
+| `-o <filename>` | **Output:** Specifies the name of the output binary (`-o` = output). |
+| `-std=c11` | **Language Standard:** Sets the C standard version (e.g., C11). |
+| `-Wall` | **Warnings All:** Enables the primary suite of compiler warnings. |
+| `-Wextra` | **Extra Warnings:** Enables additional strict safety and quality checks. |
+| `-fmax-errors=10` | **Error Limit:** Caps terminal error output to 10 lines to prevent clutter. |
+
+**Full Compilation Command Example:**
+
+`gcc -std=c11 -Wall -Wextra -fmax-errors=10 program.c -o program`
+
+### Working with Multiple C Files
+
+When working with a new file (e.g., `otherprogram.c`), WebLinux does **not** automatically update the build/exec inputs. You must manually adjust them:
+
+* **Build command:** `gcc -std=c11 -Wall -Wextra -fmax-errors=10 otherprogram.c -o otherprogram` (**`-o prog`**: definisce il nome dell'output binario (otherprogram).)
+* **Execution command:** `./otherprogram`
+
+### Verifying File Types with `file`
+
+You can verify the file types in the terminal using the `file` command:
+
+* `file program.c` -> Output: `C source, ASCII text`
+* `file program` -> Output: `ELF executable` (binary file for the system architecture)
+
+---
+
+# 12. Computer Memory Architecture & Addressing
+
+### Memory Classification: RAM vs. Non-Volatile Storage
+
+The operating system manages hardware memory, which is divided into two primary storage categories based on speed, access mode, and data persistence.
+
+| Memory Type | Primary Purpose | Characteristics | Examples |
+|---|---|---|---|
+| **RAM (Volatile Memory)** | Executes active programs and holds runtime variable values. | Fast, temporary storage wiped when power is turned off. | Random Access Memory modules |
+| **Non-Volatile Storage** | Long-term data retention for files and software binaries. | Slower than RAM, persistent storage surviving reboot cycles. | Hard Drives (HDD), Solid-State Drives (SSD) |
+
+---
+
+### Memory Hierarchy Units: Bits, Bytes, and Words
+
+At the physical hardware level, memory is structured in hierarchical binary grouping units:
+
+* **Bit:** The smallest fundamental cell of computer memory, holding a binary value of `0` or `1`.
+* **Byte:** A standardized group of 8 bits (1 Byte = 8 bits).
+* **Word:** The fundamental unit of data transferred simultaneously between RAM and the CPU processor. A word is formed by grouping multiple memory cells together.
+
+> [!NOTE] Common Word Sizes
+> Modern hardware architecture uses standard word lengths dictated by processor design, typically **8-bit**, **16-bit**, **32-bit**, or **64-bit**.
+
+---
+
+### Memory Addressing & Low-Level C Access
+
+To store and retrieve variable values efficiently, the operating system assigns a unique numerical **memory address** (a whole number) to each word in RAM.
+
+#### Addressing Mechanism Example
+
+In a simplified 8-bit architecture system with a total capacity of 4 words:
+* **Address 0:** Points to the 1st word (first 8 memory cells)
+* **Address 1:** Points to the 2nd word (next 8 memory cells)
+* **Address 2:** Points to the 3rd word (next 8 memory cells)
+* **Address 3:** Points to the 4th word (next 8 memory cells)
+
+#### Low-Level Access in C
+
+Unlike high-level interpreted languages, the C programming language allows direct retrieval and manipulation of these exact memory locations during program execution:
+
+* **Direct Memory Control:** Allows programs to obtain the exact memory address where a variable's value resides.
+* **Performance & Optimization:** Enables fine-grained control over hardware memory allocation, traversal, and execution speed.
+
+---
+
+### (extra) Memory Management: C vs. High-Level Languages
+
+Unlike C, which provides direct access to physical memory addresses via pointers, high-level languages like Java and Python hide raw memory behind a managed runtime environment (a **Virtual Machine** or Interpreter). These environments handle memory allocation and automatic garbage collection on behalf of the developer, **sacrificing low-level hardware control to eliminate memory corruption bugs** and ensure system safety.
+
+---
+
+---
+
+### (extra) 32-Bit vs. 64-Bit Architecture & Word Size
+
+The processor's native word size (typically 32-bit or 64-bit) dictates how much data the CPU can process in a single cycle and how much RAM it can address:
+
+* **RAM Addressing Limits:** A 32-bit architecture supports up to $2^{32}$ unique memory addresses (capping usable RAM at 4 GB), while a 64-bit architecture supports up to $2^{64}$ addresses (up to 16 Exabytes of RAM).
+* **Data Processing Efficiency:** A 64-bit CPU reads and manipulates 64-bit data blocks in a single hardware operation, avoiding the need to split large instructions into multiple 32-bit passes.
+* **C Pointer Size:** Because memory addresses are longer in 64-bit systems, memory pointers in C expand from 4 Bytes (32 bits) on a 32-bit system to 8 Bytes (64 bits) on a 64-bit system.
+
+---
+
+# 13. System Memory Monitoring Utilities
+
+### Overview: Monitoring vs. Managing RAM
+
+Checking system memory involves inspecting both overall hardware capacity and individual per-process consumption. Commands like `free`, `top`, and `htop` provide real-time diagnostics to detect memory bottlenecks and identify resource-heavy processes before taking administrative action (such as killing a process).
+
+---
+
+### System-Wide Memory Inspection: `free`
+
+The `free` utility displays a quick summary of total, used, and available system RAM.
+
+| Option Flag | Output Measurement Unit | Usage Example |
+|---|---|---|
+| `-b` | Bytes | `free -b` |
+| `-k` | Kilobytes (default) | `free -k` |
+| `-m` | Megabytes | `free -m` |
+| `-g` | Gigabytes | `free -g` |
+
+* **Main Output Fields:**
+  * **Total:** Physical RAM installed on the machine.
+  * **Used:** Memory currently consumed by running processes and the system.
+  * **Free:** Unallocated RAM immediately available for new tasks.
+
+---
+
+### Interactive Memory Diagnostics: `top`
+
+The `top` utility provides a real-time, interactive process monitor. The system summary header displays total used and free memory in Kilobytes.
+
+#### Memory Key Metrics & Shortcuts
+
+* **`VSZ` / `VIRT` (Virtual Size):** Represents the total virtual memory allocated to a specific process (including shared libraries and mapped files).
+* **`M` Key:** Sorts the running process list in descending order by memory usage (`VSZ`).
+* **`S` Key:** Toggles a dedicated memory-focused display layout.
+* **`q` Key:** Exits the application back to the shell prompt.
+
+---
+
+### Visual Process Management: `htop`
+
+`htop` offers an interactive, visual representation of memory usage, featuring graphical progress bars for active vs. total RAM at the top of the interface.
+
+#### Sorting Processes by Memory Usage in `htop`
+
+1. Press **`F6`** (or **`Fn + F6`**) to open the bottom **Sort by** side menu.
+2. Use the arrow keys to scroll down and select **`M_SIZE`** (Memory Size).
+3. Press **`Enter`** to confirm.
+4. Processes are now ordered dynamically by the **`VIRT`** (Virtual Memory) column from highest to lowest consumer.
+
+---
+
+# 14. Memory Inspection & Allocation in C
+
+### Process Execution & Input Pausing (`scanf`)
+
+To observe a running C program's footprint in system diagnostics (`htop`), the process must remain active in RAM. 
+
+* **Execution Holding:** Using `scanf("%c", &c)` pauses program execution while waiting for user keyboard input.
+* **Address-Of Operator (`&`):** Tells `scanf` the exact RAM memory location (address) of variable `c` where the input character should be stored.
+
+``` c
+#include <stdio.h>
+
+int main() {
+    char c;
+    printf("Hello world!\n");
+    printf("Please press a key to exit the program.\n");
+    scanf("%c",&c);
+    return 0;
+}
 ```
 
-> [!NOTE] Date Format Specifiers (`%`)
-> When using the `date` command in Linux, formatting strings start with a `+` sign. Inside the string, the `%` symbol acts as a **placeholder** (or format specifier) that gets replaced by a specific component of the current date or time:
-> 
-> * `%T` Time in 24-hour format (`HH:MM:SS`)
-> * `%A` Full weekday name (e.g., `Thursday`)
-> * `%d` Day of the month, zero-padded (`01`–`31`)
-> * `%B` Full month name (e.g., `September`)
-> * `%Y` Full 4-digit year (e.g., `2018`)
-> 
-> *Note: Format specifiers are case-sensitive
+* **Standard Headers:**
+  * `<stdio.h>`: Standard I/O library containing functions like `printf` and `scanf`.
+  * `<stdlib.h>`: Utility library containing dynamic memory management functions like `malloc()` and `free()`.
 
-> [!NOTE] Linux Command Options: `--help` vs `man` and Flag Syntax
-> 
-> ### Documentation Tools
-> * **`man <command>`** — Opens an interactive, full-page manual. Best for detailed study and offline reference. (Press `q` to exit).
-> * **`<command> --help`** — Prints a quick summary of options directly in the terminal and exits immediately.
-> 
-> ### Flag Syntax Rules
-> Options modify how a command behaves. The number of dashes indicates the option format:
-> 
-> * **Single Dash (`-`)** — Used for **single-letter** flags (e.g., `-h`, `-l`). Multiple short flags can often be combined (e.g., `-la`).
-> * **Double Dash (`--`)** — Used for **full-word** options (e.g., `--help`, `--version`). 
-> 
-> *Caution: Using a single dash with a full word like `-help` may cause the terminal to interpret it as a cluster of individual flags (`-h -e -l -p`), leading to errors.*
-
-> [!NOTE] Command Execution Modes
-> * **Standard / Non-Interactive Commands:** Execute a specific action, print the result directly into the terminal output stream, and immediately yield control back to the prompt (e.g., `whoami`, `date`, `echo`).
-> * **Interactive / Full-Screen Applications:** Take over the entire terminal interface to provide a navigable workspace, temporarily hiding the prompt until explicitly closed with an exit shortcut (e.g., `man` via the `q` key).
-
-
-# Interactive CLI Commands & How to Exit Them
-
-Some terminal commands launch interactive programs that do not immediately return to the shell prompt. You must explicitly exit these applications to regain control of the command line.
+*La funzione **scanf** fa parte della libreria standard di C. Nel CS-50 abbiamo usato una libreria con funzioni semplificate per gli input da tastiera: get_int, get_string...*
 
 ---
 
-## 1. Common Interactive Commands
+### Virtual Memory (`VIRT`) Scaling by Data Type
 
-| Command | Description | How to Exit |
-| :--- | :--- | :--- |
-| `top` | Displays real-time system processes and CPU/memory usage. | Press `q` or `Ctrl + C`. |
-| `htop` | Advanced, text-graphical process viewer. | Press `F10` (or `Fn + F10`), `q`, or `Ctrl + C`. |
-| `nano` | Basic, user-friendly text editor with a bottom menu. | Press `Ctrl + X`. |
-| `vim` | Advanced modal text editor. | Press `Esc`, then type `:q!` and press `Enter`. |
+Declaring large arrays increases the allocated **Virtual Memory (`VIRT`)**, with the memory footprint scaling directly according to the byte size of the underlying data type:
+
+| Data Type               | Single Element Size | 1,000,000 Element Array Size | Observed `VIRT` Footprint |
+| ----------------------- | ------------------- | ---------------------------- | ------------------------- |
+| **Baseline (No array)** | N/A                 | N/A                          | ~952 KB                   |
+| `char`                  | 1 Byte              | ~1 MB                        | ~1,800 KB (~1.8 MB)       |
+| `int`                   | 4 Bytes             | ~4 MB                        | ~4,728 KB (~4.7 MB)       |
+| `double`                | 8 Bytes             | ~8 MB                        | ~8,632 KB (~8.6 MB)       |
 
 ---
 
-## 2. Key Concepts & Notation
+### Virtual Memory vs. Physical RAM Allocation
 
-* **Caret Notation (^):** Represents the `Ctrl` key in terminal documentation (e.g., `^C` = `Ctrl + C`). It maps directly to ASCII control characters.
-* **ASCII Control Characters:** Key combinations that send control codes/signals to the terminal:
-  * **`^C` (`SIGINT`):** Universal Interrupt. Sends a termination signal to stop the currently running process (does not work in modal editors like `vim` or `nano`).
-  * **`^D` (`EOT` / `EOF`):** End-of-File. Signals end of input stream or exits the terminal session when the line is empty.
-  * **`^Z` (`SIGTSTP`):** Suspends the current process and places it in the background.
-  * **`^L` (`Form Feed`):** Clears the screen and redrafts the prompt (equivalent to `clear`).
-  * **`^U` / `^K`:** Erases text from the cursor to the beginning (`^U`) or end (`^K`) of the line.
-* **Exiting Vim:**
-  * Press `Esc` to return to Normal Mode.
-  * `:q!` + `Enter`: Quit without saving.
-  * `:wq` + `Enter`: Save changes and quit.
+The Linux kernel decouples memory reservation from physical hardware allocation:
 
-# Bonus Commands (Games and visuals)
+* **Lazy Allocation / Overcommit:** Declaring an uninitialized array reserves address space in Virtual Memory (`VIRT`), but **does not** immediately consume physical RAM (`RES`).
+* **Physical RAM Usage:** Physical memory is only assigned when the program actively reads or writes data to those allocated memory cells.
+* **Diagnostic Behavior:** In system monitors (`htop`), `VIRT` increases instantly with large array declarations, while physical RAM usage remains flat (e.g., staying at 2 MB out of 25 MB) until the array is actively accessed.
 
-| Command | Type | Description | Exit |
+---
+
+### Best Practices & Memory Management
+
+1. **Avoid Unused Allocations:** Compilers emit warnings when large arrays are reserved but never accessed in code.
+2. **Dynamic Memory Cleanup:** When allocating dynamic memory via `malloc()`, always release it using `free()` when no longer needed to prevent memory leaks and keep RAM available for other processes.
+
+---
+
+# Terminal Shortcut & Signals
+
+| Combinazione | Codice ASCII | Nome Carattere | Funzione in Shell / Terminale |
 | :--- | :--- | :--- | :--- |
-| `hello` | Text | Prints `"Hello world!"` | Auto |
-| `worm` / `firework` / `rain` | Visuals | ASCII animations | `Ctrl + C` / `q` |
-| `hanoi` | Puzzle | Tower of Hanoi game (move disks by size) | `q` |
-| `knight` | Game | Chess knight logic puzzle | `q` / `x` |
-
-### Linux File System Architecture
-
-#### File System Hierarchy & Standards
-
-- **File System Structure:** Organized as a single inverted tree hierarchy.
-    
-- **Root Directory (`/`):** The top-level directory of the entire Linux file system. All absolute paths originate from `/`.
-    
-- **FSSTD / FHS (1993):** The **Filesystem Hierarchy Standard** defines directory structure rules across GNU/Linux distributions to maintain system compatibility.
-    
-
-#### Core Linux Directories
-
-|**Directory**|**Full Name / Acronym**|**Description**|
-|---|---|---|
-|**`/`**|Root|The top-level root directory of the entire file system hierarchy.|
-|**`/bin`**|Binaries|Essential basic system commands required for all users (e.g., `ls`, `cp`).|
-|**`/sbin`**|System Binaries|Executable binaries reserved for system administration (**superuser / root**).|
-|**`/home`**|Home|Personal workspace directories for regular users (e.g., `/home/username/`).|
-|**`/root`**|Root's Home|Dedicated home directory for the **root** administrator account.|
-|**`/etc`**|Editable Text Configuration|System-wide configuration files in editable text format.|
-|**`/lib`**|Libraries|Shared software libraries required by system binaries in `/bin` and `/sbin`.|
-|**`/tmp`**|Temporary|Temporary storage. **Warning:** Typically wiped upon system reboot.|
-|**`/var`**|Variable Data|Dynamic operational files, including log files (`/var/log`), mail, and spool queues.|
-|**`/usr`**|Unix System Resources|Secondary hierarchy containing non-essential user utilities and software (`/usr/bin`, `/usr/lib`).|
-|**`/dev`**|Devices|Special device nodes representing physical hardware (e.g., storage, audio, memory). _Linux treats everything as a file_.|
-# File System Navigation & Paths
-
-## Navigation Commands
-* **`pwd` (Print Working Directory):** Displays the absolute path of the current directory.
-* **`ls` (List):** Lists files and folders in the current directory.
-  * **`ls -a`:** Shows all files and folders, including hidden ones (names starting with `.`).
-  * **`ls -la`:** Displays detailed view (permissions, owner, size).
-    * **`d`** at the beginning of a row indicates a directory.
-    * **`-`** at the beginning of a row indicates a regular file.
-* **`cd` (Change Directory):** Navigates through the file system.
-  * **`cd`** (alone): Immediately returns to the user's home directory (`~`).
-  * **`cd /`:** Moves directly to the root directory.
+| **`Ctrl + A`** | ASCII 1 (0x01) | **SOH** (Start of Header) | Sposta il cursore all'inizio della riga. |
+| **`Ctrl + B`** | ASCII 2 (0x02) | **STX** (Start of Text) | Sposta il cursore indietro di un carattere (equivalente a $\leftarrow$). |
+| **`Ctrl + C`** | ASCII 3 (0x03) | **ETX** (End of Text) | Invia `SIGINT`: interrompe e uccide il processo in corso. |
+| **`Ctrl + D`** | ASCII 4 (0x04) | **EOT** (End of Transmission) | Invia `EOF`: segnala la fine dell'input o chiude la shell. |
+| **`Ctrl + E`** | ASCII 5 (0x05) | **ENQ** (Enquiry) | Sposta il cursore alla fine della riga. |
+| **`Ctrl + F`** | ASCII 6 (0x06) | **ACK** (Acknowledge) | Sposta il cursore avanti di un carattere (equivalente a $\rightarrow$). |
+| **`Ctrl + G`** | ASCII 7 (0x07) | **BEL** (Bell) | Annulla la ricerca corrente o l'operazione di autocompletamento. |
+| **`Ctrl + H`** | ASCII 8 (0x08) | **BS** (Backspace) | Cancella il carattere prima del cursore. |
+| **`Ctrl + I`** | ASCII 9 (0x09) | **HT** (Horizontal Tab) | Autocompletamento di comandi e percorsi (equivalente a `Tab`). |
+| **`Ctrl + J`** | ASCII 10 (0x0A) | **LF** (Line Feed) | Invio/Nuova riga (equivalente a `Enter`). |
+| **`Ctrl + K`** | ASCII 11 (0x0B) | **VT** (Vertical Tab) | Cancella dal cursore fino alla fine della riga. |
+| **`Ctrl + L`** | ASCII 12 (0x0C) | **FF** (Form Feed) | Pulisce lo schermo mantenendo la riga attuale (equivale a `clear`). |
+| **`Ctrl + M`** | ASCII 13 (0x0D) | **CR** (Carriage Return) | Esegue il comando (equivalente a `Enter`). |
+| **`Ctrl + N`** | ASCII 14 (0x0E) | **SO** (Shift Out) | Passa al comando successivo nella cronologia (equivalente a $\downarrow$). |
+| **`Ctrl + O`** | ASCII 15 (0x0F) | **SI** (Shift In) | Esegue il comando corrente e carica il successivo dalla cronologia. |
+| **`Ctrl + P`** | ASCII 16 (0x10) | **DLE** (Data Link Escape) | Passa al comando precedente nella cronologia (equivalente a $\uparrow$). |
+| **`Ctrl + Q`** | ASCII 17 (0x11) | **DC1** (Device Control 1 / XON) | Ripristina l'output del terminale dopo un `Ctrl + S`. |
+| **`Ctrl + R`** | ASCII 18 (0x12) | **DC2** (Device Control 2) | Avvia la ricerca inversa nella cronologia dei comandi (*reverse-i-search*). |
+| **`Ctrl + S`** | ASCII 19 (0x13) | **DC3** (Device Control 3 / XOFF) | Congela l'output a schermo del terminale. |
+| **`Ctrl + T`** | ASCII 20 (0x14) | **DC4** (Device Control 4) | Scambia il carattere sotto il cursore con quello precedente. |
+| **`Ctrl + U`** | ASCII 21 (0x15) | **NAK** (Negative Acknowledge) | Cancella dal cursore fino all'inizio della riga. |
+| **`Ctrl + V`** | ASCII 22 (0x16) | **SYN** (Synchronous Idle) | Permette di inserire letteralmente il carattere speciale successivo. |
+| **`Ctrl + W`** | ASCII 23 (0x17) | **ETB** (End of Transmission Block) | Cancella la parola a sinistra del cursore. |
+| **`Ctrl + X`** | ASCII 24 (0x18) | **CAN** (Cancel) | Prefisso per scorciatoie composte (es. `Ctrl + X` poi `Ctrl + E` apre l'editor). |
+| **`Ctrl + Y`** | ASCII 25 (0x19) | **EM** (End of Medium) | Incolla l'ultimo elemento cancellato (*yank*). |
+| **`Ctrl + Z`** | ASCII 26 (0x1A) | **SUB** (Substitute) | Invia `SIGTSTP`: sospende il processo e lo mette in pausa in background. |
 
 ---
 
-## Navigation Symbols
-* **`.` (Single Dot):** Represents the current directory.
-* **`..` (Double Dot):** Represents the parent directory (one level up). Can be chained (e.g., `cd ../..` moves up two levels).
-* **`~` (Tilde):** Shortcut for the current user's home directory (e.g., `/home/user`).
+# 15. C I/O Buffering, Input Redirection, and String Handling
+
+## Standard Output Buffering & fflush
+
+### Line Buffering Mechanism
+
+By default, output sent to standard output (`stdout`) via `printf` is line-buffered on interactive terminals. Characters are kept in a temporary RAM buffer and printed only when:
+- A newline character (`\n`) is encountered.
+- The buffer fills up completely.
+- The program exits normally.
+
+### Flushing output with fflush(stdout)
+
+If a prompt printed with `printf` does not end with a `\n`, the output might remain trapped in the buffer while the program waits for user input. To force the buffer to print immediately without adding a newline, use:
+
+  printf("Enter name: ");
+  fflush(stdout);
+  scanf("%s", name);
+
+Note: Buffering behavior can vary across different operating systems and C standard library implementations.
 
 ---
 
-## Absolute vs. Relative Paths
+## Input Redirection and Piping
 
-* **Absolute Path:**
-  * Always starts with the root slash **`/`**.
-  * Specifies the exact location from the top of the file system hierarchy.
-  * Works consistently regardless of the current working directory.
-  * *Example:* `cd /home/user/sys`
+### Terminal Input Files (Ctrl + D)
 
-* **Relative Path:**
-  * Does **not** start with a leading slash **`/`**.
-  * Specifies a location relative to the current working directory.
-  * *Example:* `cd sys` (or `cd ./sys`) to go down, or `cd ..` to go up.
+You can create a plain text file directly from stdin using `cat`:
+1. Execute `cat > answers.txt`
+2. Enter values line by line.
+3. Send `Ctrl + D` (EOF / End of Transmission) to signal completion.
 
-# File Types & Command Location Utilities
+### Injecting Input into Programs
 
-## Core Inspection Commands
-* **`file <filename>`:** Inspects a file to determine its exact file type or encoding (e.g., ASCII text, C source code, directory, executable binary, or symbolic link).
-* **`realpath <file_or_link>`:** Returns the absolute canonical path of a file, resolving any symbolic links to their original source location.
-* **`which <command>`:** Locates and displays the executable binary path of an installed system command (e.g., `which cat` returns `/bin/cat`).
+To pass pre-written inputs into an interactive executable without manual typing:
 
----
+- File Redirection (<): Directs a file's content into stdin.
+  ./program < answers.txt
 
-## File Types & System Binaries
-* **Text / Source Files:** Plain text files encoded in formats such as ASCII (e.g., `.c` source files or plain text documents created via text editors like `nano`).
-* **Directory:** Identified by the `file` command as a directory container (e.g., `/bin`).
-* **Symbolic Link:** A shortcut or reference pointing to another file or location in the file system (e.g., `/bin/cat` linking to `/bin/busybox`).
-* **ELF Executables:** Compiled binary files executable by the CPU architecture (e.g., 32-bit ELF binaries).
-
-> **Symbolic Links & BusyBox**
->
-> * **Symbolic Link:** A shortcut file that points directly to another file or directory location within the file system.
-> * **BusyBox Architecture:** In storage-constrained environments (like WebLinux), individual commands are not separate binaries.
-> * **Unified Binary:** A single binary (`/bin/busybox`) contains the functionality for dozens of standard tools.
-> * **Command Pointer Example:** Running `file /bin/cat` shows that `cat` is actually a symbolic link pointing to `/bin/busybox`, which then executes the `cat` operation.
-
-## Managing Files and Escaping Standard Output
-
-### Core Commands
-
-Use `touch filename` to create an empty file and `rm filename` to delete it.
-
-### Handling Spaces in Names
-
-Spaces split arguments into multiple files. To keep a space in a single filename, use an escape backslash (`touch my\ file`) or single quotes (`touch 'my file'`). Using underscores (`my_file`) is best practice.
-
-### Exiting the `>` Secondary Prompt
-
-Unclosed quotes or brackets trap the terminal in a `>` prompt. To exit, type the matching closing character and press Enter, or press Enter followed by `Ctrl + D`. Or just close it with `Ctrl + C`.
-
-# Reading Files: `cat` and `less` 
-
-> **Note:** When using `cat > file.txt`, press `Enter` to move to a clean new line, then press `Ctrl + D` (`^D`) to save and exit.
-
-### Creating and Viewing Files
-
-* **`touch filename`:** Creates an empty file or updates the timestamp of an existing file without modifying its content.
-* **`cat filename`:** Prints the complete content of a file to the terminal.
-* **`nano filename`:** Opens the `nano` text editor.
-* **`echo "text"`:** Prints text directly to the terminal standard output.
-* **Redirection Operators:**
-  * **`>` (Overwrite):** Redirects output to a file, creating it or overwriting existing content (e.g., `echo "text" > file.txt` or `cat file1.txt > file2.txt`).
-  * **`>>` (Append):** Redirects output to a file, appending it to the end without overwriting existing content (e.g., `echo "text" >> file.txt`).
-  * **`cat > file.txt`:** Creates a file and allows direct text input from the terminal until `^D` is sent.
-
-### Managing Long Outputs & Piping (`|`)
-
-* **`cat /etc/services`:** Prints a large file directly to stdout (scrolls past quickly).
-* **`cat /etc/services > listOfServices.txt`:** Saves large output to a file for editing.
-* **`cat /etc/services | more`:** Pipes output to `more` for simple page-by-page viewing.
-* **`cat /etc/services | less`:** Pipes output to `less` for interactive navigation.
-* **`less filename`:** Opens a file directly in `less` without piping through `cat`.
-* **`ls /usr/bin | less`:** Pipes long directory listings into `less`.
+- Piping (|): Directs the output of another command into stdin.
+  cat answers.txt | ./program
 
 ---
 
-## `less` Navigation & Search
+## Limits of scanf and Safer Alternatives
 
-### Navigation
-* **`j` / `Down Arrow`:** Scroll down line by line.
-* **`k` / `Up Arrow`:** Scroll up line by line.
-* **`Spacebar` / `f`:** Scroll down page by page.
-* **`b`:** Scroll up page by page.
-* **`g`:** Jump to the **top** (beginning) of the document.
-* **`G`:** Jump to the **bottom** (end) of the document.
-* **`q`:** Quit `less`.
+### The scanf("%s") Issue
 
-### Searching
-* **Forward Search (`/`):** Type `/pattern` + `Enter`.
-  * **`n`:** Move to the **next** match (forward).
-  * **`N`:** Move to the **previous** match (backward).
-* **Backward Search (`?`):** Type `?pattern` + `Enter`.
-  * **`n`:** Move to the **next** match (backward).
-  * **`N`:** Move to the **previous** match (forward).
+Using `scanf("%s", ...)` for reading strings is problematic because:
+1. It splits input on any whitespace (spaces, tabs, newlines). Typing multiple words separated by spaces feeds subsequent `scanf` calls immediately.
+2. It does not perform bounds checking by default, risking buffer overflows.
 
-### Useful Flags
-* **`less -N`:** Displays line numbers.
-* **`less -M`:** Displays a detailed status line (line numbers and progress percentage).
-* **`ls /usr/bin | less -NM`:** Combines line numbers (`-N`) and detailed status (`-M`).
-* **`less --help`:** Opens full help and command reference.
+### Safe Alternatives for String Input
 
+1. fgets(buffer, size, stdin)
+   - Standard C function (fully portable).
+   - Reads up to `size - 1` characters, preserving spaces.
+   - Retains the trailing `\n` in the buffer (requires manual removal).
+
+2. getline(&buffer, &size, stdin)
+   - POSIX standard function.
+   - Dynamically allocates and resizes memory as needed to fit the line.
+   - Retains the trailing `\n`.
+
+3. readline(prompt)
+   - GNU Readline library function (Linux-focused).
+   - Provides line-editing features and history navigation.
+   - Strips the trailing `\n` automatically.

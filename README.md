@@ -18,7 +18,7 @@ My goal isn't necessarily to become a full-time programmer, but to build a solid
 * [x] **Week 1: C** - [Notes](./week1-C/)
 * [x] **Week 2: Arrays** - [Notes](./week2-Arrays/)
 * [x] **Week 3: Algorithms** - [Notes](./week3-algorithms/)
-* [ ] **🐧 Extra: [Linux Basics](./xtra-linuxbasics/)**
+* [x] **Extra: [Linux Basics](./xtra-linuxbasics/)**
 * [ ] **Week 4: Memory**
 * [ ] **Week 5: Data Structures**
 * [ ] **Week 6: Python**
@@ -35,3 +35,5 @@ Here are some extra programs I developed from scratch to experiment with the con
 
 ---
 > **Disclaimer:** This repository is for personal tracking and study notes. In accordance with the CS50x academic honesty guidelines, no solutions to the course problem sets are hosted here. If you are a student, I encourage you to focus on the learning process and create your own original work.
+
+<!-- ~ to my moon -->

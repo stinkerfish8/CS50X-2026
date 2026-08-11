@@ -18,4 +18,4 @@ EdX course by Dartmouh College: [Linux Basics: The Command Line Interface](https
 ## Tools
 *   **Platform:** edX (Dartmouth College)
 *   **Practice Environment:** [WebLinux (built-in course terminal)](https://remisharrock.github.io/sysbuild/#/VM)
-* **Dark Mode Fix:** [edx-darkmode.user.js](./edx-darkmode.user.js) | [Install edX DarkMode](https://raw.githubusercontent.com/stinkerfish8/CS50X-2026/main/xtra-linuxbasics/edx-darkmode.user.js)
+*   **Dark Mode Fix:** [edx-darkmode.user.js](./edx-darkmode.user.js) | [Install edX DarkMode](https://raw.githubusercontent.com/stinkerfish8/CS50X-2026/main/xtra-linuxbasics/edx-darkmode.user.js)
