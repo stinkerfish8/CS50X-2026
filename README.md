@@ -1,17 +1,8 @@
 # CS50x 2026 - Introduction to Computer Science
 
-![CS50x](https://img.shields.io/badge/Course-CS50x_2026-blue?style=flat&logo=harvard)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat)
-![Obsidian](https://img.shields.io/badge/Obsidian-483699?style=flat&logo=obsidian&logoColor=white)
-
-![Scratch](https://img.shields.io/badge/Scratch-orange?style=flat&logo=scratch&logoColor=white)
-![C](https://img.shields.io/badge/C-A8B9CC?style=flat&logo=c&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![Flask](https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white)
+![Course](https://img.shields.io/badge/Course-CS50x_2026-blue)
+![Status](https://img.shields.io/badge/Status-In_Progress-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 This repository contains my exercises and study notes for the **Harvard CS50x 2026** course. My goal isn't to become a full-time programmer, but to build a solid foundation in computer science. Gaining this low-level awareness helps me approach all my technical, logical, and creative projects with a deeper understanding of the tools I'm using.
 
