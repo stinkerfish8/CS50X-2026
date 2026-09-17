@@ -52,8 +52,12 @@ In the 64-bit Linux environment used in CS50x:
 ## New Operators
 
 * **`&` (Ampersand):**
-  * **Address-of operator:** In C, prepended to a variable (e.g., `&n`), it returns the hexadecimal memory address where the variable is allocated.
-  * *Historical note:* The name **Ampersand** comes from a contraction of the 19th-century English school recitation *"and per se and"*, used when the `&` symbol concluded the alphabet as the 27th letter.
+  * **Address-of operator:** Prepended to a variable (e.g., `&n`), it returns the memory address where that variable is stored in RAM.
+* **`*` (Asterisk):**
+  * **Dereference operator:** Prepended to a pointer (e.g., `*p`), it goes to the stored memory address and accesses or modifies the actual value located there.
+
+> [!NOTE]
+> **Historical Note:** The name **Ampersand** comes from a contraction of the 19th-century English school recitation *"and per se and"*, used when the `&` symbol concluded the alphabet as the 27th letter.
 
 ## Printing Memory Addresses
 
@@ -81,8 +85,8 @@ A pointer is a variable that stores the **memory address** of another variable.
 `int *p = &n;`
 
 * **`int *p` Syntax:** Indicates that `p` is a pointer to an integer (*pointer to an int*), not a simple integer.
-* **Asterisk Position:** The asterisk can be attached to the type (`int* p`), the space (`int * p`), or the variable (`int *p`). In CS50x, attaching it to the variable name (`int *p`) is preferred.
-* **Pointer Size:** On a 64-bit architecture, a pointer **always occupies 8 bytes** (64 bits) regardless of the data type it points to, as it must hold a long memory address.
+* **Asterisk Position:** The asterisk can be attached to the type (`int* p`), placed between spaces (`int * p`), or attached to the variable name (`int *p`). These syntax variations are functionally identical and do not change the meaning of the code. In CS50x, attaching it to the variable name (`int *p`) is preferred.
+* **Pointer Size:** On a 64-bit architecture, a pointer **always occupies 8 bytes** (64 bits).
 * **RAM Representation:**
   * `p` occupies 8 bytes and contains the address `0x123`.
   * `n` occupies 4 bytes at address `0x123` and contains the value `50`.
@@ -104,6 +108,9 @@ In C, **there is no native data type called `string`**. A string is a **contiguo
 * `s[1]` = `'i'` (Address `0x124`)
 * `s[2]` = `'!'` (Address `0x125`)
 * `s[3]` = `'\0'` (Address `0x126` - NULL Terminator)
+
+> [!NOTE]
+> Enclosing text in double quotes (`" "`) automatically appends the **NULL Terminator** (`\0`) to the end of the character array in memory. 
 
 ### Address of a String
 To represent a string, knowing **the address of its first character** is sufficient.
