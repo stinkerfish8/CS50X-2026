@@ -194,3 +194,127 @@ When using `%s`, `printf` expects a **memory address** (a `char *` like `s`).
 > 
 > 3. **Assignment:**
 >    The address of the allocated block is saved into the corresponding pointer's 8 bytes.
+
+## 4. Duplicate Strings with `malloc` and `free`
+
+To duplicate a string in C, you must allocate a new block of memory on the Heap at runtime instead of simply copying pointer addresses.
+
+### How the Computer Allocates Memory
+
+To allocate memory on the **Stack**, the program must know the exact requirements beforehand: each variable has a fixed size defined at launch (including fixed-size character arrays).
+
+On the **Heap**, however, memory can be allocated on demand at runtime—for example, when handling an input of unknown length from a prompt. The program must explicitly request this memory using `malloc` and release it with `free`.
+
+Initially, this allocation work was handled automatically by the `get_string()` function from the CS50 library (where `string` is merely an alias for `char *`). Now, we manage dynamic memory directly using standard C functions.
+
+> **Note on Memory Leaks:** If memory allocated on the Heap with `malloc` is not released using `free`, it remains occupied even after the program no longer needs it. Over time, failing to free this memory leads to a **memory leak**, which can exhaust system RAM and crash the application.
+
+### Key Concepts
+
+* **Pointer Copy vs. String Copy:** Assigning one pointer to another (`char *t = s`) copies only the memory address. Both pointers end up referencing the same string, so modifying one affects the other.
+* **Dynamic Memory (`malloc`):** Requests a specific byte size from the Heap. For strings, always allocate `strlen(s) + 1` bytes to accommodate the null terminator (`\0`).
+* **Safety Check (`NULL`):** Always verify if `malloc` returns `NULL` before accessing memory. A `NULL` return indicates allocation failure.
+* **String Duplication (`strcpy`):** Once memory is allocated, `strcpy(dest, src)` copies the character sequence along with the null terminator.
+* **Memory Cleanup (`free`):** Memory allocated via `malloc` must be explicitly released using `free()` to prevent memory leaks.
+
+### Code Implementation
+
+``` c
+#include <cs50.h>   // Provides string type and get_string()
+#include <ctype.h>  // Character manipulation functions (e.g., toupper)
+#include <stdio.h>  // Standard I/O functions like printf()
+#include <stdlib.h> // Dynamic memory management (malloc, free) and NULL macro
+#include <string.h> // String manipulation (strlen, strcpy)
+
+int main(void)
+{
+    // 1. INPUT ACQUISITION
+    char *s = get_string("s: ");
+
+    /*
+     * NOTES ON NULL vs \0:
+     * - NULL (all-caps): A NULL POINTER (address 0x0). Represents missing memory or an error.
+     * - '\0' (NUL byte): The STRING TERMINATOR character (byte value 0). Indicates the end of a string.
+     */
+    if (s == NULL)
+    {
+        return 1; // get_string failed or user cancelled input
+    }
+
+
+    /* 
+     * =========================================================================
+     * TEST 1 (INCORRECT): Copying only the pointer address
+     * =========================================================================
+     * char *t = s;
+     * 
+     * This does NOT create a new string; it only copies the ADDRESS.
+     * s and t now point to the exact same memory block on the Heap.
+     * Modifying t[0] inevitably modifies s[0] as well.
+     * =========================================================================
+     */
+
+
+    /*
+     * NOTES ON malloc (Memory Allocation):
+     * - What it is: A function from <stdlib.h> that requests a specific number of 
+     *   bytes from the OS in the HEAP memory (dynamic memory).
+     * - Why we use it: Used when the required memory size is UNKNOWN at compile-time 
+     *   and depends on user input during runtime.
+     * - What it returns: The memory address (pointer) to the FIRST byte of the allocated block.
+     *   If RAM is full or allocation fails, it returns NULL.
+     */
+
+    // 2. DYNAMIC MEMORY ALLOCATION
+    // Request a RAM block equal to: s length + 1 (for the '\0' terminator).
+    char *t = malloc(strlen(s) + 1);
+
+    // Always check if malloc returned NULL (out of memory)
+    if (t == NULL)
+    {
+        return 1;
+    }
+
+
+    /* 
+     * =========================================================================
+     * TEST 2 (ACADEMIC): Manual character-by-character copy
+     * =========================================================================
+     * Condition 'i <= n' ensures the '\0' terminator is also copied.
+     * 
+     * for (int i = 0, n = strlen(s); i <= n; i++)
+     * {
+     *     t[i] = s[i];
+     * }
+     * =========================================================================
+     */
+
+
+    // 3. ACTUAL COPY (Standard solution)
+    // strcpy(destination, source) automatically copies characters along with the '\0'.
+    strcpy(t, s);
+
+    // Capitalize the first letter of the copy if the string is not empty
+    if (strlen(s) > 0)
+    {
+        t[0] = toupper(t[0]);
+    }
+
+    // 4. PRINT RESULTS
+    printf("s: %s\n", s);
+    printf("t: %s\n", t);
+
+    // 5. FREE MEMORY
+    // Every block allocated with malloc() MUST be freed before the program ends.
+    // Forgetting this leads to "Memory Leaks", consuming system RAM unnecessarily.
+    free(t);
+
+    return 0;
+}
+```
+
+> [!NOTE] What is the `NULL` Macro?
+> In C, a **macro** is a symbol defined via the `#define` preprocessor directive. Before compilation, the preprocessor replaces `NULL` with its actual value, typically defined in `<stdlib.h>` as `((void *)0)`.
+>
+> * **Not a Keyword:** Unlike `int` or `return`, `NULL` is not built into the C language itself, but provided by standard libraries.
+> * **Type Safety & Readability:** It explicitly represents a null pointer (address `0x0`), making code far clearer than using a plain `0`.

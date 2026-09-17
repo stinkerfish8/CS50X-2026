@@ -8,7 +8,6 @@ This repository contains my exercises and study notes for the **Harvard CS50x 20
 
 ## Methodology
 These notes and exercises are compiled during my active study. I write and structure my daily study notes in **Obsidian** using Markdown. I also use AI tools (Gemini) as an interactive tutor to clarify concepts and to assist with translating and formatting my notes for this repository.
-> Note: I am aiming for 100% completion by solving all mandatory, practice, and optional exercises.
 
 ## Useful Resources
 * [My Personal CheatSheets](./xtra-cheatsheets/)
@@ -23,7 +22,7 @@ These notes and exercises are compiled during my active study. I write and struc
 * [x] **Week 2: Arrays** - [Notes](./week2-arrays/)
 * [x] **Week 3: Algorithms** - [Notes](./week3-algorithms/)
 * [x] **Extra: [Linux Basics](./xtra-linuxbasics/)**
-* [ ] **Week 4: Memory**
+* [ ] **Week 4: Memory** - [Notes](./week4-memory/) ⏳
 * [ ] **Week 5: Data Structures**
 * [ ] **Week 6: Python**
 * [ ] **Week 7: SQL**
