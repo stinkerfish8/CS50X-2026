@@ -3,8 +3,6 @@
 A quick reference guide for managing your repositories via the command line.
 [Git - Install for Windows](https://git-scm.com/install/windows)
 
----
-
 ## 1. The Daily Workflow
 These are the core commands you will use most frequently during development:
 
@@ -18,7 +16,7 @@ These are the core commands you will use most frequently during development:
 
 ---
 
-## 2. Synchronizing & Setup
+### Synchronizing & Setup
 Commands used to initialize repositories or fetch updates from the remote server:
 
 * `git init`
@@ -32,7 +30,7 @@ Commands used to initialize repositories or fetch updates from the remote server
 
 ---
 
-## 3. Advanced & Maintenance
+### Advanced & Maintenance
 Useful commands for fixing mistakes and managing untracked configuration paths:
 
 > [!TIP]
@@ -45,38 +43,53 @@ Useful commands for fixing mistakes and managing untracked configuration paths:
 * `git log --oneline`
   Shows a simplified, clean history of your recent commits.
 
-<hr style="border: 2px solid gray;">
-
-# Git Flags Explained: Single vs. Double Dashes
+## 2. Git Flags Explained: Single vs. Double Dashes
 
 When running commands in the terminal, anything written after the main command (like `git rm`) is an option or parameter called a **flag**. Flags modify how the command behaves.
 
 ---
 
-## 1. The Single Dash (`-r`)
+### The Single Dash (`-r`)
 * **Meaning:** Stands for **"recursive"**.
 * **Purpose:** By default, file removal commands are designed to handle one file at a time. If you target a folder, the system will block the action for safety. Adding `-r` instructs Git to enter the directory and recursively remove everything inside it (including all subfolders and files).
 * **Syntax Rule:** In Unix-like environments (such as Git Bash), options consisting of a **single letter** are conventionally preceded by a single dash (e.g., `-r`, `-m`, `-v`).
 
 ---
 
-## 2. The Double Dash (`--cached`)
+### The Double Dash (`--cached`)
 * **Meaning:** Instructs Git to operate **only on the index** (the staging area/cache of tracked files) and ignore the physical hard drive.
 * **Purpose:** If you run `git rm -r .obsidian`, Git deletes the folder from both the GitHub repository and your local storage. By adding `--cached`, you tell Git: *"Stop tracking this folder for GitHub, but leave my local physical files completely untouched."*
 * **Syntax Rule:** Options that are spelled out as **full words** (rather than a single letter) are conventionally preceded by two dashes. This helps the terminal distinguish a full-word argument from a cluster of individual single-letter flags.
 
----
-
-> [!SUMMARY]
+> [!TIP]
 > `-r` $\rightarrow$ Apply to the entire folder and its contents recursively.
 > `--cached` $\rightarrow$ Apply only to Git's index; do not touch local files.
 
-# Syncing Multiple Files at Once in Git
+## 3. Writing Commit Messages
 
-You can stage and commit all your modifications, new files, and deletions simultaneously using a single shortcut.
-## The Directory Shortcut (`.`)
-Instead of naming a specific file, use a dot (`.`) with the add command:
+A clear commit history makes it easier to track changes, collaborate, and understand project evolution over time.
 
-```bash
-git add .
-```
+---
+
+### Official Guidelines & Specifications
+
+* **Official Git Guidelines:** Standard practices described in the [Git Documentation](https://git-scm.com/docs/git-commit).
+* **Conventional Commits:** A widely adopted standard for clear commit history. Learn more at [conventionalcommits.org](https://www.conventionalcommits.org/).
+
+---
+
+### Personal Commit Style
+
+For this repository, commit messages follow a simplified imperative format centered on action and scope:
+
+`<Action> <scope>: <description>`
+
+* **Action:** Imperative verb (e.g., `Add`, `Update`, `Fix`, `Remove`).
+* **Scope:** The affected module, week, or topic in parentheses (e.g., `(week4)`).
+* **Description:** A short, lower-case explanation of the changes.
+
+#### Examples
+* `Add notes (week4): initial draft on memory and pointers`
+* `Update notes (week4): adjust headings hierarchy and callouts`
+* `Fix table (week4): correct hex address sequence`
+ 
