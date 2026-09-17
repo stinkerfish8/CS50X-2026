@@ -16,10 +16,23 @@ The hexadecimal system uses 16 symbols (`0-9` and `A-F`) and is used in computer
   * **RGB Pixel Example:** `#000000` (black) and `#FFFFFF` (white), where each pair of digits represents 1 byte per channel (R, G, B).
 
 * **Memory Address Sequence:**
-  * `0  1  2  3  4  5  6  7`
-  * `8  9  A  B  C  D  E  F`
-  * `10 11 12 13 14 15 16 17` *(`0x10` equals decimal 16)*
-  * `18 19 1A 1B 1C 1D 1E 1F`
+
+<table>
+  <tr>
+    <td>00</td><td>01</td><td>02</td><td>03</td><td>04</td><td>05</td><td>06</td><td>07</td>
+  </tr>
+  <tr>
+    <td>08</td><td>09</td><td>0A</td><td>0B</td><td>0C</td><td>0D</td><td>0E</td><td>0F</td>
+  </tr>
+  <tr>
+    <td>10*</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td>
+  </tr>
+  <tr>
+    <td>18</td><td>19</td><td>1A</td><td>1B</td><td>1C</td><td>1D</td><td>1E</td><td>1F</td>
+  </tr>
+</table>
+
+*\* In hexadecimal, 0x10 equals decimal 16.*
 
 ---
 
