@@ -1,8 +1,6 @@
 # Week 4: Memory
 
-# 1. Memory & Hexadecimal System
-
-## Hexadecimal System (Base-16)
+## 1. Memory & Hexadecimal System (Base-16)
 
 The hexadecimal system uses 16 symbols (`0-9` and `A-F`) and is used in computer science to represent data in a more compact and readable way compared to binary.
 
@@ -36,16 +34,16 @@ The hexadecimal system uses 16 symbols (`0-9` and `A-F`) and is used in computer
 
 ---
 
-## RAM & Addressing
+### RAM & Addressing
 
 * **Structure:** Each RAM memory cell corresponds to a single **byte** and is identified by a unique address expressed in hexadecimal.
 * **`0x` Prefix:** Convention used in code to indicate that the following numerical sequence is written in base 16.
 
 ---
 
-## Data Type Sizes (Integers)
+### Data Type Sizes (Integers)
 
-### CS50x / C (Linux 64-bit)
+#### CS50x / C (Linux 64-bit)
 In C, size depends on the architecture and compiler. 
 In the 64-bit Linux environment used in CS50x:
 
@@ -56,23 +54,23 @@ In the 64-bit Linux environment used in CS50x:
 * `long long`: **8 bytes** (64 bits)
 * `<stdint.h>`: Library used to guarantee fixed and standardized sizes across different platforms (e.g., `int32_t`).
 
-### Other Languages
+#### Other Languages
 * **Java:** `int` **always occupies 4 bytes** on any machine to ensure portability.
 * **Python:** Integers have dynamic sizing (starting from a base structure of 28 bytes and growing automatically as needed).
 
 ---
 
-## New Operators
+### New Operators
 
 * **`&` (Ampersand):**
   * **Address-of operator:** Prepended to a variable (e.g., `&n`), it returns the memory address where that variable is stored in RAM.
 * **`*` (Asterisk):**
   * **Dereference operator:** Prepended to a pointer (e.g., `*p`), it goes to the stored memory address and accesses or modifies the actual value located there.
 
-> [!NOTE]
-> **Historical Note:** The name **Ampersand** comes from a contraction of the 19th-century English school recitation *"and per se and"*, used when the `&` symbol concluded the alphabet as the 27th letter.
+> [!TIP]
+> **Etymology:** The name **Ampersand** comes from a contraction of the 19th-century English school recitation *"and per se and"*, used when the `&` symbol concluded the alphabet as the 27th letter.
 
-## Printing Memory Addresses
+### Printing Memory Addresses
 
 ``` c
 #include <stdio.h>
@@ -84,13 +82,15 @@ int main(void)
 }
 ```
 
-### Code Notes:
+#### Code Notes:
 
 - **`&n` (Address-of operator):** Retrieves the memory address of variable `n`.
     
 - **`%p` (Pointer specifier):** Format specifier used in `printf` to print **pointers** (memory addresses). Automatically formats the value in hexadecimal with the **`0x`** prefix (e.g., `0x7ff7bfe897b4`).
 
-# 2. Pointers
+---
+
+## 2. Pointers
 
 A pointer is a variable that stores the **memory address** of another variable.
 
@@ -104,7 +104,7 @@ A pointer is a variable that stores the **memory address** of another variable.
   * `p` occupies 8 bytes and contains the address `0x123`.
   * `n` occupies 4 bytes at address `0x123` and contains the value `50`.
 
-### Dereferencing Operator
+#### Dereferencing Operator
 
 `printf("%i\n", *p); // Prints 50`
 
@@ -116,7 +116,7 @@ The asterisk `*` used in front of an existing pointer variable performs **derefe
 
 In C, **there is no native data type called `string`**. A string is a **contiguous array of characters in memory** ending with a special character called the **NULL Terminator** (`\0`, byte `0`).
 
-### Memory Structure of `"Hi!"`
+#### Memory Structure of `"Hi!"`
 * `s[0]` = `'H'` (Address `0x123`)
 * `s[1]` = `'i'` (Address `0x124`)
 * `s[2]` = `'!'` (Address `0x125`)
@@ -125,7 +125,7 @@ In C, **there is no native data type called `string`**. A string is a **contiguo
 > [!NOTE]
 > Enclosing text in double quotes (`" "`) automatically appends the **NULL Terminator** (`\0`) to the end of the character array in memory. 
 
-### Address of a String
+#### Address of a String
 To represent a string, knowing **the address of its first character** is sufficient.
 
 `char *s = "Hi!";`
@@ -134,7 +134,7 @@ To represent a string, knowing **the address of its first character** is suffici
 `printf("%p\n", &s[0]);`   // Identical to s (address of 'H')  
 `printf("%p\n", &s[1]);`   // Address of 'i'  
 `printf("%p\n", &s[2]);`   // Address of '!'  
-`printf("%p\n", &s[3]);`   // Address of NULL Terminator '\0'  
+`printf("%p\n", &s[3]);`   // Address of NULL Terminator '\0'
 
 ---
 
@@ -153,7 +153,9 @@ Outside CS50x, strings are declared using native C syntax directly:
 
 `char *s = "Hi!";`
 
-## 4. Pointer Arithmetic
+---
+
+### Pointer Arithmetic
 
 To print the entire string, I must pass the character addresses to `printf`. I can use pointer arithmetic instead of array indexing syntax:
 
@@ -165,7 +167,7 @@ Standard array indexing (`s[0]`, `s[1]`) remains the most readable syntax.
 
 ---
 
-### Why does `printf("%s\n", s)` print the entire string?
+#### Why does `printf("%s\n", s)` print the entire string?
 
 When using `%s`, `printf` expects a **memory address** (a `char *` like `s`).
 
@@ -173,20 +175,22 @@ When using `%s`, `printf` expects a **memory address** (a `char *` like `s`).
 2. **Scanning:** Prints that character, moves to the next address (`s + 1`), then the next (`s + 2`), and so on.
 3. **Stop Point:** Continues reading until it encounters the **NULL Terminator (`\0`)** in memory, automatically inserted by the compiler via double quotes (`"..."`).
 
-### What happens with offsets?
+#### What happens with offsets?
 
 * `printf("%s\n", s);` -> Starts from the beginning and prints the full string (e.g., `HI!`).
 * `printf("%s\n", s + 1);` -> Starts from the second character and reads until `\0` (e.g., `I!`).
 * `printf("%s\n", s + 2);` -> Starts from the third character and reads until `\0` (e.g., `!`).
 
-> [!info] Memory Allocation: Prompts and Strings
-> 1. **Pointer Declaration (Stack):**  
+> [!NOTE]
+> **Memory Allocation: Prompts and Strings**
+> 
+> 1. **Pointer Declaration (Stack):**
 >    At startup, `char *s1` and `char *s2` immediately allocate **8 bytes** each on the *Stack* to hold future addresses.
 > 
-> 2. **User Input (Heap):**  
->    At the prompt, the system dynamically allocates a block of **`N + 1` bytes** on the *Heap*:
+> 2. **User Input (Heap):**
+>    At the prompt, the system dynamically allocates a block of **N + 1 bytes** on the *Heap*:
 >    * `1 byte` for each typed character (`N`).
 >    * `1 final byte` for the NULL Terminator (`\0`).
 > 
-> 3. **Assignment:**  
+> 3. **Assignment:**
 >    The address of the allocated block is saved into the corresponding pointer's 8 bytes.
